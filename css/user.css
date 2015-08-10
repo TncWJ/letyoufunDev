@@ -1,0 +1,46 @@
+.card.userquan{border:none;}
+.quan .quanbox{background:#f84c4c;width:47%;height:100px;color:#fff;padding:0px 5px;float:left;margin:5px 5% 5px 0px;position:relative;}
+.quan .maskgq{width:100%;height:100%;position:absolute;top:0px;left:0px;background:rgba(255,255,255,0.5);}
+.quan .maskgq p{font-size:20px;text-align:center;line-height:100px;overflow:hidden;}
+.quan .quanbox:nth-child(2n){margin-right:0px;}
+.quan_top{height:30px;overflow:hidden;}
+.quan_top dt{font-size:20px;float:left;font-weight:bold;line-height:30px;}
+.quan_top dt span{font-size:24px; vertical-align:top;}
+.quan_top dd{float:left;font-size:14px;margin-top:5px;margin-left:10px;}
+.quanbot h5{font-size:12px;margin-bottom:5px;}
+.quanbot p{color:#fff;font-size:12px;}
+.segmented-control.quantit{height:35px;padding:0px;border:none;}
+.segmented-control.quantit .control-item{line-height:35px;padding:0px;border-bottom:1px solid #ddd;}
+.segmented-control.quantit .control-item.active{border-bottom:2px solid #f60;background:none;height:34px;color:#f60;}
+/*登陆*/
+.bar .icon.reg{font-size:17px;color:#f60; text-decoration:underline;line-height:44px;padding:0px;}
+.input-group.login{padding:10px;background:#f4f4f4;}
+.input-group.login div.input-row{border:1px solid #ddd;margin-top:10px;background:#fff;box-shadow:1px 1px 3px #ccc;}
+.input-group.login div.input-row label{border-right:1px solid #ddd;padding:0px 0px 0px 5px;line-height:25px;margin:10px 0px;width:20%;text-align:center;color:#333;}
+.input-group.login div.input-row input{width:75%;height:45px;}
+.loginbtn{margin-top:30px;}
+.input-group .wangpass{text-align:right;}
+.input-group .wangpass a{text-decoration:underline;color:#858585;}
+/*修改密码*/
+.input-group.chpass{margin-top:10px;border-top:1px solid #ddd;background:#f4f4f4;}
+.input-group.chpass input{text-align:right;height:45px;}
+.input-group.chpass div.input-row{border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;background:#fff;}
+.input-group.chpass div.input-row label{color:#333;line-height:25px;margin:10px 0px;padding:0px 0 0 10px;}
+/*安全中心*/
+.userinfor{padding:10px;margin:10px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;}
+.userinfor dt{width:90px;height:90px;float:left;margin-right:10px;}
+.userinfor dt img{width:100%;height:auto;}
+.userinfor dd{padding-top:15px;}
+.userinfor dd p{color:#333;font-size:15px;}
+.usersafe .table-view-cell{color:#333;}
+.usersafe .table-view-cell span{margin-left:10px;color:#858585;}
+.usersafe .table-view-cell em{color:#F00;}
+@media screen and (max-width: 390px) {
+.quanbot h5{font-size:10px;margin-bottom:0px;}
+.quanbot p{color:#fff;font-size:10px;}
+.userinfor dt{width:70px;height:70px;float:left;}
+.userinfor dd{padding-top:10px;}
+.userinfor dd p{font-size:13px;margin-bottom:5px;}
+.usersafe .table-view-cell{padding-right:40px;}
+.usersafe .table-view-cell>a:not(.btn){margin-right:-40px;}
+	}
