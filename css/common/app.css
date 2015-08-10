@@ -82,7 +82,7 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .lv_block dd a:nth-child(2){margin-top:10px;background:#30c4f4 url(../../images/lv_icon3.png) 15px center no-repeat;background-size: 80px 65px;}
 	.picScroll{height: 90px;overflow: hidden;position: relative;}
 	.picScroll .bd ul{ width:100%;  float:left; padding-top:10px;  }
-	.picScroll .bd li{ width:20%;float:left;text-align: center;}
+	.picScroll .bd li{ width:100%;float:left;text-align: center;}
 	.picScroll .bd li a p{color: #333;}
 
 	.picScroll .hd{position: absolute;top:65px;width: 100%;text-align: center;}
@@ -280,18 +280,19 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 .tra_con_tit{padding-left:30px;height:25px;line-height:25px;}
 .tra_con_tit.tuan{background:url(../../images/icon/tra_con_icon.jpg) left center no-repeat;background-size:25px;}
 .tra_con_tit.chan{background:url(../../images/icon/tra_con_icon2.jpg) left center no-repeat;background-size:25px;}
-.tra_con_tit.fei{background:url(../../images/icon/tra_con_icon3.jpg) left center no-repeat;background-size:25px;}
+.tra_con_tit.fei{background:url(../../images/icon/tra_con_icon3.jpg) left center no-repeat;background-size:25px;margin-bottom:0px;}
 .tra_con_tit.anp{background:url(../../images/icon/tra_con_icon6.jpg) left center no-repeat;background-size:25px;}
 .anpai{margin:10px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:10px;background:#fff;}
 .an_main{height:500px;overflow:hidden;}
 .an_main dl{padding-left:12px;position:relative;}
 .an_main dl dt{position:absolute;top:0px;left:0px;}
-.an_main dl dt span{width:24px;height:30px;background:url(../../images/icon/tra_con_icon4.jpg) left center no-repeat;display:block;background-size:24px;height:30px;}
+.an_main dl dt span{width:20px;height:30px;margin-left:2px;background:url(../../images/icon/tra_con_icon4.jpg) left center no-repeat;display:block;background-size:20px 25px;}
 .an_main dl dd{padding-left:18px;border-left:1px dashed #ddd;}
 .an_main dl dd h3{color:#F60;font-size:16px;}
 .an_main dl dd h3 span{width:19px;height:19px;background:url(../../images/icon/tra_con_icon5.jpg);display:inline-block; vertical-align:middle;margin:0px 10px;}
-.anpai p.show{text-align:center;}
-.anpai p.show .icon-up-nav{display:none;}
+.anpai p.trahasmo{text-align:center;margin-top:10px;}
+.anpai p.trahasmo .icon{margib:0 auto;}
+.anpai p.trahasmo .icon-up-nav{display:none;}
 @media screen and (max-width: 480px) and (min-width: 390px){
 .chooze_time .calender{width: 60px;height:40px;}
 .chooze_time .calender img{width: 30px;height:25px;margin-bottom: 5px;}
