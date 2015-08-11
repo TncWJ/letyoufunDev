@@ -14,9 +14,26 @@
     <script src="js/Server/ClientServer.js"></script>
     <!--angularjs-->
     <script src="js/Controller/TravelConController.js"></script>
+   <!--日期--> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
+  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+  <script>
+  $(function () {
+
+            // Mobiscroll Calendar initialization
+            $('#demo').mobiscroll().calendar({
+                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
+                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
+              });
+          }); 
+  </script>
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
   
 </head>
 <body ng-controller="TravelConController">
@@ -27,7 +44,37 @@
 <div class="content pad50 grey" id="main_box">
   <section>
     <div class="intro_tra white">
-      <img ng-src="{{hotelDetal.data.mainimage.url}}" class="w100">
+    <div class="addWrap">
+     <div class="swipe" id="mySwipe">
+      <div class="swipe-wrap">
+        <div><a href="javascript:;"><img class="img-responsive" ng-src="{{hotelDetal.data.mainimage.url}}"/></a></div>
+        <div><a href="javascript:;"><img class="img-responsive" ng-src="{{hotelDetal.data.mainimage.url}}"/></a></div>
+        <div><a href="javascript:;"><img class="img-responsive" ng-src="{{hotelDetal.data.mainimage.url}}"/></a></div>
+      </div>
+    </div>
+    <ul id="position">
+      <li class="cur"></li>
+      <li class=""></li>
+      <li class=""></li>
+    </ul>
+  </div>
+  <script src="js/swipe.min.js"></script> 
+  <script type="text/javascript">
+    var bullets = document.getElementById('position').getElementsByTagName('li');
+    var banner = Swipe(document.getElementById('mySwipe'), {
+     auto: 2000,
+     continuous: true,
+     disableScroll:false,
+     callback: function(pos) {
+      var i = bullets.length;
+      while (i--) {
+        bullets[i].className = ' ';
+      }
+      bullets[pos].className = 'cur';
+    }
+  });
+  </script>
+      <!--img ng-src="{{hotelDetal.data.mainimage.url}}" class="w100"-->
       <!--<img src="images/tra_con.jpg" class="w100">-->
       <h3>{{hotelDetal.data.hotelname}}</h3>
      <p><span>乐有方价： ￥{{hotelDetal.data.rooms[0].ourprice}}起</span><i> 乐有方价：<em> ￥{{hotelDetal.data.rooms[0].ourprice}}</em>起</i></p>
@@ -36,7 +83,7 @@
   <section>
    <ul class="table-view">
     <li class="table-view-cell">
-    <a class="navigate-right">
+    <a class="navigate-right" id="demo">
       <h3 class="tra_con_tit tuan">查看和选择团期</h3>
       <p>07-18，07-19，07-20，07-21，07-22，07-23…</p>
     </a>
@@ -54,7 +101,7 @@
       <div class="an_main">
             <span ng-repeat="v in hotelDetal.data.images"><img ng-src="{{v.url}}"/></span>
       </div>
-      <p class="show"><span class="icon icon-down-nav"></span><span class="icon icon-up-nav"></span></p>
+      <p class="show trahasmo"><span class="icon icon-down-nav"></span><span class="icon icon-up-nav"></span></p>
      </div>
     </section>   
    <section>
@@ -71,6 +118,24 @@
   <span class="icon icon-star"></span>
   <a href="order.html"></a>
 </div>
+</div>
+<script>
+//展示更多
+	$(".trahasmo").click(function(){
+	  if($(this).hasClass("show")){
+		  $(this).find(".icon-down-nav").hide();
+		  $(this).find(".icon-up-nav").show();
+		  $(this).removeClass("show");
+		  $(".an_main").css("height","auto");
+		  }else{
+		  $(this).find(".icon-up-nav").hide();
+		  $(this).find(".icon-down-nav").show();	
+		  $(this).addClass("show");
+		  $(".an_main").css("height","500px");
+			  }
+	   });
+
+</script>
 </body>
 
 </html>

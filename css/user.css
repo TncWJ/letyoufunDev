@@ -23,7 +23,7 @@
 .input-group .wangpass a{text-decoration:underline;color:#858585;}
 /*修改密码*/
 .input-group.chpass{margin-top:10px;border-top:1px solid #ddd;background:#f4f4f4;}
-.input-group.chpass input{text-align:right;height:45px;}
+.input-group.chpass input[type="text"],.input-group.chpass input[type="password"]{text-align:right;height:45px;}
 .input-group.chpass div.input-row{border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;background:#fff;}
 .input-group.chpass div.input-row label{color:#333;line-height:25px;margin:10px 0px;padding:0px 0 0 10px;}
 /*安全中心*/
@@ -31,10 +31,50 @@
 .userinfor dt{width:90px;height:90px;float:left;margin-right:10px;}
 .userinfor dt img{width:100%;height:auto;}
 .userinfor dd{padding-top:15px;}
-.userinfor dd p{color:#333;font-size:15px;}
+.userinfor dd p{color:#333;font-size:15px;font-weight:bold;}
 .usersafe .table-view-cell{color:#333;}
 .usersafe .table-view-cell span{margin-left:10px;color:#858585;}
 .usersafe .table-view-cell em{color:#F00;}
+.usersafe.userinCon .table-view-cell em{color:#999;}
+/*注册*/
+.tx_bz{padding:10px;height:70px;}
+.tx_bz li{height:50px;width:33.3%;float:left;text-align:center;position:relative;padding-top:10px;}
+.tx_bz li div{width:100%;height:5px;background:#c4c4c4;}
+.tx_bz li.on div{background:#f60;}
+.tx_bz li span{line-height:25px;width:25px;height:25px;color:#fff;background:url(../images/user/bz_icon2.png);display:block;background-size:25px;position:absolute;top:0px;left:0px;right:0px;margin:0 auto;}
+.tx_bz li.on span{background:url(../images/user/bz_icon.png);background-size:25px;}
+.tx_bz li p{margin-top:12px;}
+.tx_bz li.on p{color:#f60;}
+input[type="button"].yzmbtn{background:#e2e2e2;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;color:#333;margin-bottom:10px;}
+.reg_succ{width:80%;padding:30px 0px;margin:0 auto;}
+.reg_succ img{display:block;margin:0 auto;width:30%;height:auto;margin-bottom:10px;}
+.reg_succ .btn{margin-top:50px;}
+.reg_succ p{text-align:center;}
+/*个人资料*/
+.usertou{margin-top:10px;margin-bottom:10px;}
+.usersafe.userinCon .table-view-cell em.icon{color:#d9d9d9;}
+/*订单*/
+.orderbot{text-align:right;padding:5px 10px;}
+.card.orderlist{background:none;border:none;border-radius:0px;-webkit-border-radius:0px;-moz-border-radius:0px;margin:0px;}
+.card.orderlist .table-view{background:none;line-height:20px;}
+.card.orderlist .table-view h3{color:#333;margin:0px;line-height:20px;}
+.card.orderlist .table-view p{margin:0px;}
+.orderCon li{border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin-top:10px;background:#fff;}
+.segmented-control.ordertit{border:none;border-radius:0px;-webkit-border-radius:0px;-moz-border-radius:0px;}
+.segmented-control.ordertit .control-item{background:#f8f8f8;border-bottom:1px solid #ddd;height:35px;line-height:35px;margin:0px;padding:0px;font-size:14px;}
+.segmented-control.ordertit .control-item.active{background:#f8f8f8;font-weight:bold;border-bottom:2px solid #f60;height:34px;color:#f60;}
+/*现金贷*/
+.dai_user p span{color:#f60;}
+.dai_user .rez_p{font-size:12px;}
+.jie_tit{color:#333;font-size:14px;}
+.jie_k{border-bottom:1px solid #ddd;}
+.kuan_infor li{width:50%;float:left;}
+.kuan_infor li p{color:#f60;}
+.kuan_infor li p i{font-size:20px;margin-left:5px;line-height:20px;overflow:hidden;}
+.jie_num .num_show{text-align:center;padding-top:10px;}
+.jie_num .num_show span{width:40px;height:42px;background:url(../images/user/num_icon.jpg); background-size:40px 42px;display:inline-block;text-align:center;line-height:40px;color:#f60;font-size:20px;}
+/*资料认证*/
+.userrzhao a.navigate-right{padding-top:15px;padding-bottom:15px;}
 @media screen and (max-width: 390px) {
 .quanbot h5{font-size:10px;margin-bottom:0px;}
 .quanbot p{color:#fff;font-size:10px;}
@@ -43,4 +83,9 @@
 .userinfor dd p{font-size:13px;margin-bottom:5px;}
 .usersafe .table-view-cell{padding-right:40px;}
 .usersafe .table-view-cell>a:not(.btn){margin-right:-40px;}
+.tx_bz li div{height:3px;}
+.tx_bz li span{line-height:18px;width:18px;height:18px;background-size:18px;top:3px;}
+.tx_bz li.on span{background-size:18px;}
+.jie_num .num_show span{width:30px;height:31px; background-size:30px 31px;line-height:30px;}
+
 	}
