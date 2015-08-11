@@ -36,6 +36,11 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .hasm10{margin:10px;}
 .nopa{padding: 10px;}
 .btn-orange{background:#ff6600;color:#fff;border:none;height:40px;line-height:40px;padding:0px;}
+a.btn-orange:link,a.btn-orange:hover,a.btn-orange:visited{color:#fff;}
+.btn-grey{background:#e2e2e2;border:none;height:40px;line-height:40px;padding:0px;}
+.btn-outlined.btn-orange2{color:#f60;}
+.btn-orange2{border: 1px solid #f60;padding:4px 8px 4px;}
+.white{background:#fff;}
 /*主体部分*/
 .over{height:100%;overflow:hidden;}
 .content.grey{background: #f4f4f4;}
@@ -48,3 +53,7 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 	min-height:100%;
 	padding-bottom:50px;
 }
+.orange{background:#ff6102;}
+.orange .title,.orange .icon,.orange .btn-link{color:#fff;background:none;}
+.orange .title{margin:0px;}
+.bar.orange{border:none;}
