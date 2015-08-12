@@ -121,6 +121,11 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .sfoot .tab-item:nth-child(2) .icon{background:url(../../images/footicon2.jpg) no-repeat center;background-size:24px;}
 .sfoot .tab-item:nth-child(3) .icon{background:url(../../images/footicon3.jpg) no-repeat center;background-size:24px;}
 .sfoot .tab-item:nth-child(4) .icon{background:url(../../images/footicon4.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item.active{color:#fd882b;}
+.sfoot .tab-item:nth-child(1).tab-item.active .icon{background:url(../../images/footicon_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(2).tab-item.active .icon{background:url(../../images/footicon2_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(3).tab-item.active .icon{background:url(../../images/footicon3_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(4).tab-item.active .icon{background:url(../../images/footicon4_on.jpg) no-repeat center;background-size:24px;}
 .sfoot.bar-tab .tab-item span.tab-label{line-height:15px;}
 
 /*citycooze*/

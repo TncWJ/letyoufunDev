@@ -35,8 +35,35 @@
      <p>认证成功</p>
    </li>
  </ul>
-   
+   <div class="white rz_box">
+     <dl>
+       <dt><img src="images/user/succ_icon.png" class="w100"></dt>
+       <dd>
+         <h3>恭喜您，认证成功！</h3>
+         <p><span id="miao">5</span>秒后跳转首页</p>
+       </dd>
+     </dl>
+   </div>
  </div>
+ <script>
+ var oDiv=document.getElementById("miao");
+ var time=parseInt(oDiv.innerHTML);
+ var timer=null;
+
+	timer=setInterval(function(){
+		 if(time>0){
+		  time=time-1;	 	
+		  }else{
+		   time=0;
+		   clearInterval(timer); 
+			}
+		   oDiv.innerHTML=time; 	
+		   },1000);
+	
+
+	
+   
+ </script>
 </body>
 
 </html>
