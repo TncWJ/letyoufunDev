@@ -34,7 +34,10 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .hasbot{border-top:1px solid #ddd;}
 .hasbor{border:1px solid #ccc;}
 .hasm10{margin:10px;}
-.nopa{padding: 10px;}
+.nopa{padding:0px;}
+.noma{margin:0px;}
+.nopa.table-view-cell > a:not(.btn){margin:0px;padding:10px 0px;}
+.nopa.table-view-cell > a:not(.btn)::after{content:"";}
 /*主体部分*/
 .over{height:100%;overflow:hidden;}
 #main_box{
@@ -54,7 +57,6 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .head a img{width:16px;height:22px;margin-right:5px;}
 .orange{background:#ff6102;}
 .orange .title,.orange .icon,.orange .btn-link{color:#fff;background:none;}
-.orange .title{margin:0px;}
 .bar.orange{border:none;}
 .logo{width:35%;margin:20px auto 0;display:block;max-width:232px;}
 .addWrap{ position:relative; width:100%;background:#fff;margin:0; padding:0;}
@@ -82,7 +84,7 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .lv_block dd a:nth-child(2){margin-top:10px;background:#30c4f4 url(../../images/lv_icon3.png) 15px center no-repeat;background-size: 80px 65px;}
 	.picScroll{height: 90px;overflow: hidden;position: relative;}
 	.picScroll .bd ul{ width:100%;  float:left; padding-top:10px;  }
-	.picScroll .bd li{ width:100%;float:left;text-align: center;}
+	.picScroll .bd li{ width:20%;float:left;text-align: center;}
 	.picScroll .bd li a p{color: #333;}
 
 	.picScroll .hd{position: absolute;top:65px;width: 100%;text-align: center;}
@@ -121,6 +123,11 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .sfoot .tab-item:nth-child(2) .icon{background:url(../../images/footicon2.jpg) no-repeat center;background-size:24px;}
 .sfoot .tab-item:nth-child(3) .icon{background:url(../../images/footicon3.jpg) no-repeat center;background-size:24px;}
 .sfoot .tab-item:nth-child(4) .icon{background:url(../../images/footicon4.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item.active{color:#fd882b;}
+.sfoot .tab-item:nth-child(1).tab-item.active .icon{background:url(../../images/footicon_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(2).tab-item.active .icon{background:url(../../images/footicon2_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(3).tab-item.active .icon{background:url(../../images/footicon3_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(4).tab-item.active .icon{background:url(../../images/footicon4_on.jpg) no-repeat center;background-size:24px;}
 .sfoot.bar-tab .tab-item span.tab-label{line-height:15px;}
 
 /*citycooze*/
@@ -241,7 +248,7 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 
 /*travel*/
 .dest a{width: 24%;height: 30px;line-height: 30px;font-size: 14px;text-align: center;margin-right: 1%;border:1px solid #ddd;margin-top: 10px;display:block;float: left;}
-.segmented-control.traveltab{margin-top: 20px;}
+.segmented-control.traveltab{margin-top:  20px;}
 .segmented-control.traveltab .control-item{font-size: 16px;}
 .segmented-control.traveltab .control-item.active{background: none;border-bottom: 2px solid #ff6102;color:#ff6102;}
 .travel_list{margin:0px;padding: 10px;border:none;}
@@ -293,6 +300,16 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 .anpai p.trahasmo{text-align:center;margin-top:10px;}
 .anpai p.trahasmo .icon{margib:0 auto;}
 .anpai p.trahasmo .icon-up-nav{display:none;}
+/*收藏*/
+.top_txt{font-size:16px;color:#fff;line-height:44px;}
+a.top_edit:link,a.top_edit:visited,a.top_edit:hover,a.top_edit:active{color:#fff;}
+.user_sc{display:-webkit-box;display:-moz-box;display:box;width:100%;position: relative;}
+.user_sc a{display:block;-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;}
+.dele_ch{width:20px;margin-right:10px;position:relative;height:100px;display:none;}
+.dele_ch span{width:20px;height:20px;border:1px solid #ccc;display:block;position:absolute;top:50%;margin-top:-10px;}
+.dele_ch span.on{background:#f60;border:1px solid #f60;}
+.sc_dele_btn{width:100%;position:fixed;bottom:0px;left:0px;-moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;margin:0px;display:none;}
+.sc_mask{width:100%;height:100%;position: absolute;top:0px;left: 0px;display: none;}
 @media screen and (max-width: 480px) and (min-width: 390px){
 .chooze_time .calender{width: 60px;height:40px;}
 .chooze_time .calender img{width: 30px;height:25px;margin-bottom: 5px;}
@@ -316,9 +333,10 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 .citychange div.cityone{margin-left: 0px;}
 .citychange div.citythree{margin-right: 0px;}
 .travel_list li img{width: 80px;height: auto;} 
-.travel_list li h4{font-size:14px;line-height: 20px;}
+.travel_list li h4{font-size:14px;line-height: 20px;max-height:40px;overflow:hidden;}
 .travel_list li h6{line-height: 20px;}
 .travel_list li h6 em{font-size: 14px;}
+.dele_ch{eight:80px;}
 
 .chooze_time .calender{width: 60px;height:40px;}
 .chooze_time .calender img{width: 30px;height:25px;margin-bottom: 10px;}
