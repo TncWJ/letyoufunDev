@@ -85,6 +85,8 @@ input[type="button"].yzmbtn{background:#e2e2e2;border-radius:3px;-webkit-border-
 .cz_main .cz_box{width:150px;height:150px;background:url(../images/user/circle.png);background-size:150px;margin:0 auto 30px;text-align:center;padding-top:40px;font-size:16px;color:#333;line-height:30px;}
 .cz_main .cz_box span{color:#f60;font-size:12px;}
 .cz_main .cz_box span i{font-size:18px;}
+.cz_main .shuom{margin:20px 0px 20px;}
+.cz_main .shuom h3{color:#f60;font-weight:15px;}
 /*认证*/
 .rz_box{padding:50px 0px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 .rz_box dl{width:300px;margin:0 auto;height:80px;}
@@ -123,6 +125,17 @@ a.lorrbtn:link,a.lorrbtn:visited,a.lorrbtn:hover,a.lorrbtn:active{color:#fff;}
 .userinCon .ke span.icon_left{background:url(../images/user/user_icon11.jpg);background-size:20px}
 .user_list.usersafe.userinCon .table-view-cell em{color:#333;}
 .table-view-cell .table_num{position:absolute;right:65px;top:10px;}
+/*我的账单*/
+.huan_zh img.media-object {width:120px;height:90px;}
+.huan_zh .media-body dl{display:-moz-box;display:-webkit-box;display:box;width:100%;}
+.huan_zh .media-body dt{-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;}
+.huan_zh .media-body dt h3{color:#333;margin-bottom:0px;margin-top:10px;}
+.huan_zh .media-body dt p{margin-top:10px;margin-bottom:0px;line-height:20px;}
+.huan_zh .media-body dt p span{margin-right:20px;}
+.huan_zh .media-body dt p span i{color:#F60;}
+.huan_zh .media-body dd{text-align:right;width:50px;}
+.huan_zh .media-body dd h5{margin-top:10px;color:#f60;}
+.huan_zh .media-body dd .btn{height:20px;line-height:20px;padding:0px 5px;margin-top:20px;}
 @media screen and (max-width: 390px) {
 .quanbot h5{font-size:10px;margin-bottom:0px;}
 .quanbot p{color:#fff;font-size:10px;}
@@ -137,8 +150,12 @@ a.lorrbtn:link,a.lorrbtn:visited,a.lorrbtn:hover,a.lorrbtn:active{color:#fff;}
 .tx_bz li.on span{background-size:18px;}
 .jie_num .num_show span{width:30px;height:31px; background-size:30px 31px;line-height:30px;}
 .cz_main .cz_box{width:120px;height:120px;background-size:120px;padding-top:30px;font-size:16px;line-height:30px;}
-.cz_main .zfb{width:100px;height:25px;}
+.cz_main .zfb{width:100px;height:28px;}
 .rz_box dl{width:210px;margin:0 auto;height:80px;}
 .rz_box dt{width:60px;height:60px;margin-right:10px;}
 .rz_box dd h3{font-size:15px;padding-top:10px;}
+.huan_zh img.media-object{width:90px;height:70px;}
+.huan_zh .media-body dt h3{margin-top:5px;}
+.huan_zh .media-body dt p{font-size:12px;margin-top:5px;line-height:16px;overflow:hidden;}
+.huan_zh .media-body dd .btn{font-size:12px;}
 	}

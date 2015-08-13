@@ -141,12 +141,12 @@
     <div class="bd">
       <ul>
           <li ng-repeat="v in travelList.zhoubian">
-              <a href="#" ng-click="goToDetal('travel' , v.packageid , 'travelDetal');">
+              <a href="#">
               <dl>
                   <dt><img ng-src="{{host}}{{v.picture}}"></dt>
                   <dd>
                       <p>{{v.title}}</p>
-                      <p><span>{{v.other_info}}</span><em>|</em><span>{{v.special_info}}</span></p>
+                      <p><span></span><em>|</em><span></span></p>
                   </dd>
               </dl>
           </a>
@@ -334,17 +334,18 @@
     </div>
   </div>
   <script type="text/javascript">
+  $(function(){
     TouchSlide({ 
-      slideCell:"#slideBox5",
+      slideCell:".slideBox5",
       titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
       mainCell:".bd ul", 
       effect:"leftLoop", 
       autoPage:true,//自动分页
       autoPlay:false //自动播放
     });
+    })
   </script>
 </div>
-
 </div>
 <nav class="bar bar-tab sfoot">
   <a class="tab-item active" href="index.html">
