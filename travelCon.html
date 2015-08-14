@@ -47,9 +47,6 @@
     <div class="addWrap">
      <div class="swipe" id="mySwipe">
       <div class="swipe-wrap">
-        <div><a href="javascript:;"><img class="img-responsive" ng-src="#"/></a></div>
-        <div><a href="javascript:;"><img class="img-responsive" ng-src="#"/></a></div>
-        <div><a href="javascript:;"><img class="img-responsive" ng-src="#"/></a></div>
       </div>
     </div>
     <ul id="position">
@@ -60,19 +57,7 @@
   </div>
   <script src="js/swipe.min.js"></script> 
   <script type="text/javascript">
-    var bullets = document.getElementById('position').getElementsByTagName('li');
-    var banner = Swipe(document.getElementById('mySwipe'), {
-     auto: 2000,
-     continuous: true,
-     disableScroll:false,
-     callback: function(pos) {
-      var i = bullets.length;
-      while (i--) {
-        bullets[i].className = ' ';
-      }
-      bullets[pos].className = 'cur';
-    }
-  });
+
   </script>
       <!--<img ng-src="#" class="w100">-->
       <!--<img src="images/tra_con.jpg" class="w100">-->
@@ -104,7 +89,8 @@
             <span></span>
           </dt>
           <dd>
-            <h3>第{{v.tripDay}}天 <span>{{v.tripTitle}}</span></h3>
+            <h3>第{{v.tripDay}}天</h3>
+              <p>标题：{{v.tripTitle}}</p>
             <p>用餐： {{v.breakfast}}</p>
             <p>住宿： {{v.tripStay}}</p>
             <p>交通： {{v.tripType}}</p>

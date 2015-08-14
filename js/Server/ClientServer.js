@@ -23,6 +23,7 @@ ClientServer.prototype.createRequest = function(apiName , getParam , templateNam
     getParam = arguments[1] ? getParam : '';
     templateName = arguments[2] ? templateName : '';
     postData = arguments[3] ? postData : '';
+
     var scope = this.scope;
         scope['isok'] = false;
     if( !postData ){
@@ -32,10 +33,14 @@ ClientServer.prototype.createRequest = function(apiName , getParam , templateNam
         }));
     }else{
         //post
-        this.data =  (
-        this.http.post(lyf.go(this.api[apiName] , getParam) , postData).then(function(response){
+        //this.data =  (
+        //this.http.post(lyf.go(this.api[apiName] , getParam) , postData).then(function(response){
+        //    return response.data;
+        //}));
+
+        this.data = (this.http({'method':'post','url':lyf.go(this.api[apiName] , getParam),data:postData,'headers':{ 'Content-Type': 'application/x-www-form-urlencoded' }}).then(function(response){
             return response.data;
-        }));
+        }))
     }
 
     if( templateName == ''){
@@ -57,6 +62,7 @@ ClientServer.prototype.init = function($http , $scope){
     api['flight'] = 'AppServer/Flight';
     api['travel'] = 'AppServer/Travel';
     api['flight'] = 'AppServer/Flight';
+    api['user'] = 'AppServer/User';
 
     this.api = api;
     this.data = {};
@@ -71,6 +77,26 @@ ClientServer.prototype.init = function($http , $scope){
     $scope.goToDetal = function(apiName , id , templateName , type){
         type = arguments[3] ? arguments[3] : 'travelCon';
         window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
+    }
+
+    /**
+     * 带登录验证的跳转
+     * @param apiName
+     * @param id
+     * @param templateName
+     * @param type
+     */
+    $scope.goToCheck = function(apiName , id , templateName , type){
+        $http.get(lyf.go(api['user'] ,'checkLogin')).success(function(d){
+            if(d.type == 'success' && d.data == 'ok'){
+                type = arguments[3] ? arguments[3] : 'travelCon';
+                window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
+            }else{
+                window.location.href = './userlogin.html';
+
+            }
+        })
+
     }
 }
 

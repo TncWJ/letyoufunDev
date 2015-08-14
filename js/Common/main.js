@@ -116,3 +116,9 @@ lyf.getUrlPram = function(name){
     }
     return theRequest;
 }
+
+
+lyf.goToDetal = function(apiName , id , templateName , type){
+    type = arguments[3] ? arguments[3] : 'travelCon';
+    window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
+}

@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appUserCenter">
 <head>
   <meta charset="utf-8">
   <title>乐有方</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    <!--Public-->
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/User/UserCenterController.js"></script>
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/comm.css">
   <link rel="stylesheet" href="css/user.css">
 </head>
-<body class="grey">
+<body class="grey" ng-controller="UserCenterController">
 <div class="content grey" id="main_box">
   <div class="user_m_top">
     <header class="bar-tab">
