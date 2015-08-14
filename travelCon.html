@@ -76,8 +76,8 @@
   </script>
       <!--<img ng-src="#" class="w100">-->
       <!--<img src="images/tra_con.jpg" class="w100">-->
-      <h3>{{travelDetal.li.productname}}</h3>
-     <p><span>乐有方价： ￥{{travelDetal.li.today_price}}起</span><i> 乐有方价：<em> ￥{{travelDetal.li.today_price}}</em>起</i></p>
+      <h3>{{travelDetal.li.packagename}}</h3>
+     <p><span>乐有方价： ￥{{travelDetal.li.today_price*12}}起</span><i> 乐有方价：<em> ￥{{travelDetal.li.today_price*12}}</em>起</i></p>
     </div>
   </section>
   <section>
@@ -93,22 +93,50 @@
      <div class="tra_intro pad10 white">
        <h3 class="tra_con_tit chan">产品介绍</h3>
        <div class="tra_block">
-
+         杭州的春天是美丽的，在那和煦的阳光下，在花草泥土的芬芳中，满目清翠，令人不得不
+心醉。而杭州美,西湖更美.阳春三月，莺飞草长。
+<img src="images/tra_con2.jpg" class="w100"></div>
+       <div class="tra_block">
+         杭州的春天是美丽的，在那和煦的阳光下，在花草泥土的芬芳中，满目清翠，令人不得不
+心醉。而杭州美,西湖更美.阳春三月，莺飞草长。
+<img src="images/tra_con2.jpg" class="w100"></div>
        </div>
     <section>
     <div class="anpai">
       <h3 class="tra_con_tit anp">行程安排</h3>
       <div class="an_main">
-        <dl ng-repeat="v in travelDetal.li.trips.trip">
+        <dl>
           <dt>
             <span></span>
           </dt>
           <dd>
-            <h3>第{{v.tripDay}}天 <span>{{v.tripTitle}}</span></h3>
-            <p>用餐： {{v.breakfast}}</p>
-            <p>住宿： {{v.tripStay}}</p>
-            <p>交通： {{v.tripType}}</p>
-            <p>{{v.tripInfo}}</p>
+            <h3>第1天 | 西安<span class="fei"></span>昆明</h3>
+            <p>用餐： 敬请自理</p>
+            <p>住宿： 二星或同等酒店</p>
+            <p>交通： 巴士</p>
+            <p>07:00上海博物馆南门集合出发，10:00左右到达杭州，随后漫步
+            【苏堤】，感受江南的如画美景。 --中午导游安排午餐 ，--随后
+            巴士赴（蚕丝博物馆）了解丝绸文化渊源随后赴梅家坞茶园欣赏茶
+            园风光。 --随后赴【万松书院】景区游览，了解梁山伯与祝英台的
+            爱情故事。 --17：30在黄龙洞景区停车集合，换大巴送苏州酒店
+            休息 。</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            <span></span>
+          </dt>
+          <dd>
+            <h3>第2天 | 西安<span class="fei"></span>昆明</h3>
+            <p>用餐： 敬请自理</p>
+            <p>住宿： 二星或同等酒店</p>
+            <p>交通： 巴士</p>
+            <p>07:00上海博物馆南门集合出发，10:00左右到达杭州，随后漫步
+            【苏堤】，感受江南的如画美景。 --中午导游安排午餐 ，--随后
+            巴士赴（蚕丝博物馆）了解丝绸文化渊源随后赴梅家坞茶园欣赏茶
+            园风光。 --随后赴【万松书院】景区游览，了解梁山伯与祝英台的
+            爱情故事。 --17：30在黄龙洞景区停车集合，换大巴送苏州酒店
+            休息 。</p>
           </dd>
         </dl>
       </div>
