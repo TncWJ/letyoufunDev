@@ -7,5 +7,9 @@ angular.module('appTravel' , []).controller('TravelConController' , function($sc
     var param = lyf.getUrlPram();
     var server = new ClientServer($http , $scope);
     var funName = param.type == 'hotelCon' ? 'getHotelDetal' : 'getTravelDetal';
-        server.createRequest(param.apiName , funName+'/id/'+param.id , param.templateName);
+        server.createRequest(param.apiName , funName+'/id/'+param.id , '').then(function(d){
+            $scope.travelDetal = d;
+            $(".tra_block").html(d.li.productinfo)
+        })
+
 })
