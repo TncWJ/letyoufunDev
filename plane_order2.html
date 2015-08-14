@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="appPlaneBook">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐有方</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--Public-->
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/PlaneBookController.js"></script>
+    <!-- Roboto -->
+    <link rel="stylesheet" href="css/common/ratchet.min.css"/>
+    <link rel="stylesheet" href="css/common/app.css"/>
+</head>
+<body class="grey" ng-controller="PlaneBookController">
+<header class="bar bar-nav orange">
+    <a class="icon icon-left-nav pull-left" onclick="history.go(-1)"></a>
+
+    <h1 class="title">订单详情</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+    <div class="plane_cw plane_order">
+        <section>
+            <div class="plane_infor">
+                <p class="hk_infor">7月21日，周二出发</p>
+
+                <div class="add_plane pad10">
+                    <div class="addbox1">
+                        <h3>深圳</h3>
+                        <h5>07:13</h5>
+
+                        <p>深圳宝安国际机场</p>
+                    </div>
+                    <div class="addbox2">
+                        <img src="images/plane_icon3.jpg"/>
+                    </div>
+                    <div class="addbox1">
+                        <h3>深圳</h3>
+                        <h5>07:13</h5>
+
+                        <p>深圳宝安国际机场</p>
+                    </div>
+                </div>
+                <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+            </div>  
+        </section>
+    </div>
+    <section>
+      <div class="index_box plane_order2">
+        <h3>订单信息</h3>
+        <ul class="table-view">
+          <li class="table-view-cell"><span>订单状态</span><em class="color">未付款</em></li>
+          <li class="table-view-cell"><span>订单编号</span><em>2130981098</em></li>
+          <li class="table-view-cell">
+            <p><span>应付金额</span><em class="color">￥340</em></p>
+            <p><span>分<em class="color">10</em>期</span><span>月供<em class="color">￥30</em></span></p>
+          </li>
+          <li class="table-view-cell"><span>下单时间</span><em>2015-07-18</em></li>
+          <li class="table-view-cell"><span>出发时间</span><em>2015-07-18 14:33</em></li>
+        </ul>
+      </div>    
+      <div class="index_box plane_order2">
+        <h3>乘机人信息</h3>
+        <ul class="table-view">
+          <li class="table-view-cell"><span>乘客姓名</span><em class="color">张三</em></li>
+          <li class="table-view-cell"><span>身份证号</span><em>213891277198893981</em></li>
+        </ul>
+      </div>   
+      <div class="index_box plane_order2">
+        <h3>联系人信息</h3>
+        <ul class="table-view">
+          <li class="table-view-cell"><span>联系人姓名</span><em class="color">张三</em></li>
+          <li class="table-view-cell"><span>手机号码</span><em>1231313123</em></li>
+        </ul>
+      </div>    
+    </section>
+    <div class="pla_pay_btn">
+      <a href="pay.html" class="btn btn-block btn-orange">立即支付</a>
+    </div>
+</div>
+</body>
+</html>

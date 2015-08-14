@@ -110,6 +110,7 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .slideBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0);  }  /* 去掉链接触摸高亮 */
 .slideBox .bd li .tit{ display:block; width:100%;  position:absolute; bottom:0; text-indent:10px; height:28px; line-height:28px; background:url(images/focusBg.png) repeat-x; color:#fff;  text-align:left;  }
 .btn-orange{background:#ff6200;color:#fff;border:none;}
+a.btn-orange:link,a.btn-orange:hover,a.btn-orange:active,a.btn-orange:visited{color:#fff;}
 .btn-grey{background:#999999;color:#fff;border:none;}
 .popover.botphone{border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;}
 .popover.botphone:before{display: none;}
@@ -213,8 +214,8 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 .plane_list li a .listtwo p{margin-bottom: 0px;}
 .plane_list li a .listtwo p span{color: #ff6102}
 .plane_list li a .listtwo h3{color: #ff6102;font-size: 20px;margin-bottom: 5px;}
-.plane_list .hk_list img{width: 20px;height: 18px;float: left;margin-right: 5px;}
-.plane_list .hk_list em{margin: 0px 5px;}
+.hk_list img{width: 20px;height: 18px;float: left;margin-right: 5px;}
+.hk_list em{margin: 0px 5px;}
 .plane_foo{background: rgba(0,0,0,0.7);}
 .plane_foo .tab-item{color: #fff;}
 .plane_foo .tab-item.active{color:#ff6102;}
@@ -310,6 +311,35 @@ a.top_edit:link,a.top_edit:visited,a.top_edit:hover,a.top_edit:active{color:#fff
 .dele_ch span.on{background:#f60;border:1px solid #f60;}
 .sc_dele_btn{width:100%;position:fixed;bottom:0px;left:0px;-moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;margin:0px;display:none;}
 .sc_mask{width:100%;height:100%;position: absolute;top:0px;left: 0px;display: none;}
+/*机票订单*/
+.plane_cw.plane_order{margin:10px 0;}
+.plane_cw.plane_order .hk_list{margin-left:10px;}
+.pla_or_main{background:#fff;border:1px solid #ddd;margin-bottom:10px;}
+.pla_or_tit{font-size:15px;border-bottom:1px solid #ddd;padding:10px;margin-bottom:0;}
+.ck_infor{display:-webkit-box;display:-moz-box;display:box;width:100%;padding-left:10px;border-bottom:1px solid #ddd;}
+.ck_infor dt{width:20px;height:20px;margin-top:20px;background:url(../../images/icon/dele_icon.jpg);background-size:20px;}
+.ck_infor dd{-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;margin-left:10px;}
+.pla_or_main .input-row{height:35px;}
+.pla_or_main .input-row:nth-child(2){border:none;}
+.addxck{text-align:center;line-height:25px;font-size:14px;color:#F90;text-decoration:underline;margin-top:5px;}
+.plane_total{height:55px;background:#fff;padding:5px 10px;border:1px solid #ddd;z-index:11;position:fixed;bottom:0px;left:0px;width:100%;}
+.plane_total .pull-left p{color:#333;margin-bottom:0px;}
+.plane_total .pull-left p em{margin-right: 10px;}
+.plane_total .pull-left p em span{color:#f60;}
+.plane_total .pull-right{font-size:16px;line-height:40px;color:#F90;}
+.plane_total .pull-right .btn{height:30px;width:80px;text-align:center;line-height:30px;padding:0;margin-top:5px;}
+.plane_pri{position:fixed;bottom:0px;left:0px;background:#fff;width:100%;z-index:10;display:none;}
+.pri_infor{padding:5px 10px;}
+.pri_infor span{float:left;}
+.pri_infor em{float:right;}
+.mask{width:100%;height:100%;background:rgba(0,0,0,0.5) !important;position:fixed;top:0;left:0;z-index:9;background:#000;filter:alpha(opacity=50);display:none;}
+/*机票订单2*/
+.plane_order2{background:#fff;border:1px solid #ddd;margin-bottom:10px;border-bottom:none;}
+.plane_order2 h3{margin-bottom:10px;}
+.plane_order2 .table-view{margin:0px;}
+.plane_order2 .table-view span{width:90px;display:inline-block;}
+.plane_order2 .table-view .color{color:#F60;}
+.pla_pay_btn{margin:30px 20px 0;}
 @media screen and (max-width: 480px) and (min-width: 390px){
 .chooze_time .calender{width: 60px;height:40px;}
 .chooze_time .calender img{width: 30px;height:25px;margin-bottom: 5px;}
