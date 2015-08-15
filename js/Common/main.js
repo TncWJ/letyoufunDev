@@ -122,3 +122,28 @@ lyf.goToDetal = function(apiName , id , templateName , type){
     type = arguments[3] ? arguments[3] : 'travelCon';
     window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
 }
+
+/**
+ * 是否是手机号
+ * @param str
+ * @returns {boolean}
+ */
+lyf.isMoblie = function(str){
+    if (str.match(/^[0-9]{11}$/) == null) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/**
+ * 两次密码是否一致
+ * @param pass1
+ * @param pass2
+ * @returns {boolean}
+ */
+lyf.checkRpPass = function(pass1 , pass2){
+    return pass1 == pass2 ? true : false;
+}
+

@@ -87,9 +87,10 @@ ClientServer.prototype.init = function($http , $scope){
      * @param type
      */
     $scope.goToCheck = function(apiName , id , templateName , type){
+        type = arguments[3] ? arguments[3] : 'travelCon';
         $http.get(lyf.go(api['user'] ,'checkLogin')).success(function(d){
             if(d.type == 'success' && d.data == 'ok'){
-                type = arguments[3] ? arguments[3] : 'travelCon';
+                console.log(type);
                 window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
             }else{
                 window.location.href = './userlogin.html';
