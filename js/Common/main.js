@@ -147,3 +147,20 @@ lyf.checkRpPass = function(pass1 , pass2){
     return pass1 == pass2 ? true : false;
 }
 
+/**
+ * 弹出框
+ * @param obj 对象
+ * @param ocolse 关闭按钮
+ */
+    lyf.alert = function(){
+       $(".alertbox").show();
+        $(".sclose").tap(function(){
+            $(".alertbox").hide();
+        });
+        $(".surebtn").tap(function(){
+           $(".alertbox").hide();
+        });
+        setTimeout(function(){
+             $(".alertbox").hide();
+        },5000);
+    }
