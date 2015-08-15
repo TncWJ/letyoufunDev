@@ -149,18 +149,29 @@ lyf.checkRpPass = function(pass1 , pass2){
 
 /**
  * 弹出框
- * @param obj 对象
- * @param ocolse 关闭按钮
+ * @param title
+ * @param centent
+ * @param time
  */
-    lyf.alert = function(){
+    lyf.alert = function(title , centent , time){
+        var div = document.createElement('div');
+            div.className = 'wrap';
+            div.innerHTML = '<div class="content pad50 grey" id="main_box"><div class="alertbox"><h3>'+title+'<span class="sclose">&times;</span></h3><div class="alertmain">'+centent+'</div><div class="alertbot"><button class="btn surebtn">确定</button></div></div></div>';
+
+
+        $('body').append(div);
        $(".alertbox").show();
         $(".sclose").tap(function(){
             $(".alertbox").hide();
         });
         $(".surebtn").tap(function(){
            $(".alertbox").hide();
-        });
+        }).click(function(){
+            $('.alertbox').hide();
+        })
+
         setTimeout(function(){
              $(".alertbox").hide();
-        },5000);
+            $('.wrap').remove();
+        },time);
     }
