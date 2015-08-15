@@ -140,17 +140,6 @@
  <div id="slideBox1" class="slideBox slideBox1">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.zhoubian">
-              <a href="#">
-              <dl>
-                  <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                  <dd>
-                      <p>{{v.title}}</p>
-                      <p><span></span><em>|</em><span></span></p>
-                  </dd>
-              </dl>
-          </a>
-      </li>
       </ul>
     </div>
 
@@ -159,14 +148,7 @@
     </div>
   </div>
   <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox1",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
+
   </script>
 </div>
 
@@ -175,17 +157,7 @@
  <div id="slideBox2" class="slideBox slideBox2">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.jingnei">
-              <a href="#" ng-click="goToDetal('travel' , v.packageid , 'travelDetal');">
-                  <dl>
-                      <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                      <dd>
-                          <p>{{v.title}}</p>
-                          <p><span>{{v.other_info}}</span><em>|</em><span>{{v.special_info}}</span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
+
 
       </ul>
     </div>
@@ -194,16 +166,6 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox2",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-  </script>
 </div>
 
 <div class="index_box hasbot">
@@ -211,18 +173,6 @@
  <div id="slideBox3" class="slideBox slideBox1">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.jingwai">
-              <a href="#" ng-click="goToDetal('travel' , v.packageid , 'travelDetal');">
-                  <dl>
-                      <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                      <dd>
-                          <p>{{v.title}}</p>
-                          <p><span>{{v.other_info}}</span><em>|</em><span>{{v.special_info}}</span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
-
       </ul>
     </div>
 
@@ -230,16 +180,6 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox3",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-  </script>
 </div>
 
 <div class="index_box hasbot">
@@ -315,17 +255,6 @@
  <div id="slideBox5" class="slideBox slideBox5">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in hotHotel.lists">
-              <a href="#" ng-click="goToDetal('index' ,v.hotelid , 'hotelDetal' , 'hotelCon')">
-                  <dl>
-                      <dt><img ng-src="{{v.Image}}"></dt>
-                      <dd>
-                          <p>{{v.hotelname}}</p>
-                          <p><span>价格：{{v.ourprice}}</span><em>|</em><span>月供：{{v.MonthPay}}<em>× 12</em></span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
       </ul>
     </div>
 
@@ -333,26 +262,15 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-  $(function(){
-    TouchSlide({ 
-      slideCell:".slideBox5",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-    })
-  </script>
 </div>
+
 </div>
 <nav class="bar bar-tab sfoot">
-  <a class="tab-item active" href="index.html">
+  <a class="tab-item" href="index.html">
     <span class="icon"></span>
     <span class="tab-label">首页</span>
   </a>
-  <a class="tab-item" href="userdai.html">
+  <a class="tab-item" href="#">
     <span class="icon"></span>
     <span class="tab-label">借款</span>
   </a>
@@ -360,7 +278,7 @@
     <span class="icon"></span>
     <span class="tab-label">收藏</span>
   </a>
-  <a class="tab-item" href="user.html">
+  <a class="tab-item" href="#" ng-click="goToCheck('user' , '' , 'userInfo' , 'user')">
     <span class="icon"></span>
     <span class="tab-label">我的</span>
   </a>
