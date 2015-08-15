@@ -6,6 +6,8 @@ angular.module('appUser' , []).controller('LoginController' , function($scope , 
     $scope.host = 'http://192.168.99.190/letyoufunR010/';
     //$scope.host = conf.common.webHost;
     var server = new ClientServer($http , $scope);
+    var param = lfy.getUrlPram();
+    server.createRequest('user' , 'setClientHost/'+param.client_host , '');
     server.createRequest('user' , 'checkLogin' , '').then(function(d){
         if(d.type == 'success' && d.data == 'ok'){
             lyf.goToServerTpl('user.html');

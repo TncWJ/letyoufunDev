@@ -29,4 +29,11 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
         $scope.tplName = $scope.lastTplName;
     }
 
+    /**
+     * 返回客户端首页框架
+     */
+    $scope.goToClient = function(tplName){
+        window.location.href = history.go(-2);
+    }
+
 })

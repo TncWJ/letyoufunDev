@@ -69,7 +69,7 @@
         </nav>
         <ul class="table-view usersafe userinCon user_list">
             <li class="table-view-cell ding">
-                <a class="navigate-right" href="usermyorder.html">
+                <a class="navigate-right" href="#" ng-click="changeTpl('myOrder.html')";>
                     <span class="pull-left icon_left"></span>
                     <em class="pull-right">{{userOrder.order_list_count}}</em>
                     全部订单
@@ -199,6 +199,285 @@
     </div>
 </script>
 
+<script type="text/ng-template" id="myorder.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">安全中心</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="segmented-control ordertit">
+            <a class="control-item active" href="#item1mobile">
+                全部
+            </a>
+            <a class="control-item" href="#item2mobile">
+                待支付
+            </a>
+            <a class="control-item" href="#item3mobile">
+                未出行
+            </a>
+        </div>
+        <div class="card orderlist">
+            <div id="item1mobile" class="control-content active">
+                <ul class="table-view orderCon">
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="item2mobile" class="control-content">
+                <ul class="table-view orderCon">
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="item3mobile" class="control-content">
+                <ul class="table-view orderCon">
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ordertop table-view-cell media">
+                            <a class="navigate-right">
+                                <p><i>酒店</i> | <span>待支付</span></p>
+                                <h3>重庆7天连锁酒店</h3>
+                                <div class="orderintro">
+                                    <p>高级大床房1间</p>
+                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="orderbot">
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
+                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="userxin.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">个人充值</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="cz_main">
+            <div class="cz_box">
+                信用总额<br><span>￥<i>3000.00</i></span>
+            </div>
+            <div class="zhu_btn">
+                <a class="btn btn-block btn-orange" href="userxinsucc.html">立即激活</a>
+            </div>
+            <div class="shuom">
+                <h3>授信额度说明：</h3>
+                <p>1.通过乐有方认证的用户才可享有信用额度。<br />
+                    2.授信额需要激活才可以使用。<br />
+                    3.根据您的信用评级，3000到6000元，无论您想去哪里，我们都支持！</p>
+            </div>
+            <img src="images/user/zhi.png" class="zfb">
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="userzhi.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">个人充值</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="cz_main">
+            <div class="cz_box">
+                可用余额<br><span>￥<i>1999.00</i></span>
+            </div>
+            <div class="zhu_btn">
+                <button class="btn btn-block btn-orange">充值余额(支付宝)</button>
+                <button class="btn btn-block btn-orange2 btn-outlined hbg">提现余额到支付宝</button>
+            </div>
+            <img src="images/user/zhi.png" class="zfb">
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="userzhang.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">我的账单</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <ul class="table-view huan_zh">
+            <li class="table-view-cell media pad10">
+                <img class="media-object pull-left" src="images/user/img.jpg">
+                <div class="media-body">
+                    <dl class="clearfix">
+                        <dt>
+                        <h3>重庆如家快捷宾馆</h3>
+                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
+                        <p>下次还款日期：2015年9月10日</p>
+                        </dt>
+                        <dd>
+                            <h5>￥2850</h5>
+                            <a href="pay.html" class="btn btn-orange">还款</a>
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+            <li class="table-view-cell media pad10">
+                <img class="media-object pull-left" src="images/user/img.jpg">
+                <div class="media-body">
+                    <dl>
+                        <dt>
+                        <h3>重庆如家快捷宾馆</h3>
+                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
+                        <p>下次还款日期：2015年9月10日</p>
+                        </dt>
+                        <dd>
+                            <h5>￥2850</h5>
+                            <a href="pay.html" class="btn btn-orange">还款</a>
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+            <li class="table-view-cell media pad10">
+                <img class="media-object pull-left" src="images/user/img.jpg">
+                <div class="media-body">
+                    <dl>
+                        <dt>
+                        <h3>重庆如家快捷宾馆</h3>
+                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
+                        <p>下次还款日期：2015年9月10日</p>
+                        </dt>
+                        <dd>
+                            <h5>￥2850</h5>
+                            <a href="pay.html" class="btn btn-orange">还款</a>
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+        </ul>
+    </div>
+</script>
+<script type="text/ng-template"></script>
 <div ng-include="tplName"></div>
 </body>
 

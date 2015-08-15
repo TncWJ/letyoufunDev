@@ -181,5 +181,6 @@ lyf.checkRpPass = function(pass1 , pass2){
  * @param tplName
  */
     lyf.goToServerTpl = function(tplName){
-         window.location.href = conf.common.serverTplDir+tplName;
+        var host = window.location.href;
+         window.location.href = conf.common.serverTplDir+tplName+'?client_host='+host;
     }
