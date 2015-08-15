@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appUserCenter">
 <head>
   <meta charset="utf-8">
   <title>乐有方</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    <!--Public-->
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <script src="js/Common/zepto.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/User/UserCenterController.js"></script>
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/comm.css">
   <link rel="stylesheet" href="css/user.css">
 </head>
-<body class="grey">
+<body class="grey" ng-controller="UserCenterController">
 <div class="content grey" id="main_box">
   <div class="user_m_top">
     <header class="bar-tab">
@@ -21,16 +28,18 @@
       <h1 class="title">我的乐有方</h1>
     </header>
     <div class="user_xq">
-      <span class="ren r_span"></span>
-      
+      <span ng-show="userInfo.user_status == 1"><img class="ren r_span" ng-src="./images/user/rz_icon.png" alt=""/></span>
+      <span ng-show="userInfo.user_status != 1"><img class="ren r_span" ng-src="./images/user/rz_icon2.png" alt=""/></span>
+
       <dl class="tou_infor">
         <dt><a href="userinfor.html"><img src="images/user/tou.png"></a></dt>
         <dd>
         <!--登陆显示-->
           <a href="userinfor.html">
           <div class="zhuc">
-          <p class="num">12312989128</p>
-          <p>认证会员</p>
+          <p class="num">{{userInfo.user_login}}</p>
+          <p ng-show="userInfo.user_status == 1">认证会员</p>
+          <p ng-show="userInfo.user_status != 1">待  认证</p>
           </div>
           </a>
           <!--未登录-->

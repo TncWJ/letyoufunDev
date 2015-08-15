@@ -140,17 +140,6 @@
  <div id="slideBox1" class="slideBox slideBox1">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.zhoubian">
-              <a href="#">
-              <dl>
-                  <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                  <dd>
-                      <p>{{v.title}}</p>
-                      <p><span></span><em>|</em><span></span></p>
-                  </dd>
-              </dl>
-          </a>
-      </li>
       </ul>
     </div>
 
@@ -159,14 +148,7 @@
     </div>
   </div>
   <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox1",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
+
   </script>
 </div>
 
@@ -175,17 +157,7 @@
  <div id="slideBox2" class="slideBox slideBox2">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.jingnei">
-              <a href="#" ng-click="goToDetal('travel' , v.packageid , 'travelDetal');">
-                  <dl>
-                      <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                      <dd>
-                          <p>{{v.title}}</p>
-                          <p><span>{{v.other_info}}</span><em>|</em><span>{{v.special_info}}</span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
+
 
       </ul>
     </div>
@@ -194,16 +166,6 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox2",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-  </script>
 </div>
 
 <div class="index_box hasbot">
@@ -211,18 +173,6 @@
  <div id="slideBox3" class="slideBox slideBox1">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in travelList.jingwai">
-              <a href="#" ng-click="goToDetal('travel' , v.packageid , 'travelDetal');">
-                  <dl>
-                      <dt><img ng-src="{{host}}{{v.picture}}"></dt>
-                      <dd>
-                          <p>{{v.title}}</p>
-                          <p><span>{{v.other_info}}</span><em>|</em><span>{{v.special_info}}</span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
-
       </ul>
     </div>
 
@@ -230,16 +180,6 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-    TouchSlide({ 
-      slideCell:"#slideBox3",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-  </script>
 </div>
 
 <div class="index_box hasbot">
@@ -315,17 +255,6 @@
  <div id="slideBox5" class="slideBox slideBox5">
     <div class="bd">
       <ul>
-          <li ng-repeat="v in hotHotel.lists">
-              <a href="#" ng-click="goToDetal('index' ,v.hotelid , 'hotelDetal' , 'hotelCon')">
-                  <dl>
-                      <dt><img ng-src="{{v.Image}}"></dt>
-                      <dd>
-                          <p>{{v.hotelname}}</p>
-                          <p><span>价格：{{v.ourprice}}</span><em>|</em><span>月供：{{v.MonthPay}}<em>× 12</em></span></p>
-                      </dd>
-                  </dl>
-              </a>
-          </li>
       </ul>
     </div>
 
@@ -333,26 +262,15 @@
       <ul></ul>
     </div>
   </div>
-  <script type="text/javascript">
-  $(function(){
-    TouchSlide({ 
-      slideCell:".slideBox5",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul", 
-      effect:"leftLoop", 
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-    })
-  </script>
 </div>
+
 </div>
 <nav class="bar bar-tab sfoot">
-  <a class="tab-item active" href="index.html">
+  <a class="tab-item" href="index.html">
     <span class="icon"></span>
     <span class="tab-label">首页</span>
   </a>
-  <a class="tab-item" href="userdai.html">
+  <a class="tab-item" href="#">
     <span class="icon"></span>
     <span class="tab-label">借款</span>
   </a>
@@ -360,7 +278,7 @@
     <span class="icon"></span>
     <span class="tab-label">收藏</span>
   </a>
-  <a class="tab-item" href="user.html">
+  <a class="tab-item" href="#" ng-click="goToCheck('' , '' , '' , 'user')">
     <span class="icon"></span>
     <span class="tab-label">我的</span>
   </a>
@@ -372,6 +290,96 @@
   <button class="btn btn-orange btn-block">电话咨询</button>
   <button class="btn btn-grey btn-block">取消</button>
 </div>
+<div id="myModalexample2" class="modal city_chooze">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#myModalexample2"></a>
+    <h1 class="title">选择城市</h1>
+  </header>
+    <div class="content city" style="margin-top:-100px">
+      <section>
+        <input type="text" placeholder="0"> <input type="text" placeholder="0">
+      </section>
+      <div class="currentcity">
+        <p class="hottit">热门城市</p>
+        <div>重庆</div>
+      </div>
+        <div class="clearfix cityCon">
+        <p class="hottit">热门城市</p>
+        <div>
+        <span class="on">北京</span>
+        <span>上海</span>
+        <span>南京</span>
+        <span>广东</span>
+        <span>天津</span>
+        <span>北京</span>
+        <span>上海</span>
+        <span>南京</span>
+        <span>广东</span>
+        <span>天津</span>
+        <span>北京</span>
+        <span>上海</span>
+        <span>南京</span>
+        <span>广东</span>
+        <span>天津</span>
+        <span>北京</span>
+        <span>上海</span>
+        <span>南京</span>
+        <span>广东</span>
+        <span>天津</span>
+        <span>北京</span>
+        <span>上海</span>
+        <span>南京</span>
+        <span>广东</span>
+        <span>天津</span>
+        <span>北京</span>
+        <span>上海</span>
+      </div>
+      </div>
+      <div class="clearfix cityCon">
+        <p class="hottit">快速定位</p>
+        <div>
+        <a href="#A1">A</a>
+        <a href="#B1">B</a>
+        <a href="#C1">C</a>
+        <a href="#D">D</a>
+        <a href="#E">E</a>
+        <a href="#F">F</a>
+        <a href="#G">G</a>
+        <a href="#H">H</a>
+        <a href="#I">I</a>
+        <a href="#J">J</a>
+        <a href="#K">K</a>
+        <a href="#L">L</a>
+        <a href="#M">M</a>
+        <a href="#N">N</a>
+        <a href="#O">O</a>
+        <a href="#P">P</a>
+        <a href="#Q">Q</a>
+        <a href="#R">R</a>
+        <a href="#S">S</a>
+        <a href="#T">T</a>
+        <a href="#U">U</a>
+        <a href="#V">V</a>
+        <a href="#W">W</a>
+        <a href="#X">X</a>
+        <a href="#Y">Y</a>
+        <a href="#Z">Z</a>
+      </div>
+      </div>
+      <div class="clearfix cityCon">
+        <p class="hottit" name="A1" id="A1">A</p>
+        <span>鞍山</span>
+      </div>
+      <div class="clearfix cityCon" name="B1" id="B1">
+        <p class="hottit">B</p>
+        <span>北京</span>
+      </div>
+      <div class="clearfix cityCon"  name="C1" id="C1">
+        <p class="hottit">C</p>
+        <span>成都</span><span>重庆</span><span>长沙</span><span>长春</span><span>常州</span>
+      </div>
+    </div> 
+  </div>   
 </body>
 
 </html>
