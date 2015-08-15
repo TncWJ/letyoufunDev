@@ -69,3 +69,9 @@ a.btn-orange:link,a.btn-orange:hover,a.btn-orange:visited{color:#fff;}
 .sfoot .tab-item:nth-child(3).tab-item.active .icon{background:url(../../images/footicon3_on.jpg) no-repeat center;background-size:24px;}
 .sfoot .tab-item:nth-child(4).tab-item.active .icon{background:url(../../images/footicon4_on.jpg) no-repeat center;background-size:24px;}
 .sfoot.bar-tab .tab-item span.tab-label{line-height:15px;}
+/*弹出框*/
+.alertbox{background:#fff;border:1px solid #ddd;width:250px;height:140px;position:fixed;top:50%;margin-top:-70px;left:50%;margin-left:-125px;display:none;}
+.alertbox h3{position:relative;font-size:16px;padding:5px 10px;margin:0;background:#f60;color:#fff;}
+.alertbox h3 .sclose{position:absolute;right:10px;top:5px;font-size:20px;}
+.alertmain{padding:10px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;height:70px;text-align:center;line-height:40px;font-size:14px;}
+.alertbot{text-align:right;padding:5px 10px;}
