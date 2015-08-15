@@ -175,3 +175,11 @@ lyf.checkRpPass = function(pass1 , pass2){
             $('.wrap').remove();
         },time);
     }
+
+/**
+ * 使用服务器端模板,避免session跨域
+ * @param tplName
+ */
+    lyf.goToServerTpl = function(tplName){
+         window.location.href = conf.common.serverTplDir+tplName;
+    }

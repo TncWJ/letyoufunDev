@@ -8,7 +8,7 @@ angular.module('appUser' , []).controller('LoginController' , function($scope , 
     var server = new ClientServer($http , $scope);
     server.createRequest('user' , 'checkLogin' , '').then(function(d){
         if(d.type == 'success' && d.data == 'ok'){
-            window.location.href='./user.html';
+            lyf.goToServerTpl('user.html');
         }
     })
 

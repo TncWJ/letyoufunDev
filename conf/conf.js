@@ -5,8 +5,9 @@
 
 var conf = {
         'common':{
-            //'webHost':'http://test.letyoufun.com/',
-            'webHost':'http://localhost/letyoufun/index.php/',
+            'webHost':'http://test.letyoufun.com/',
+            'serverTplDir':'http://test.letyoufun.com/statics/wap/',
+            //'webHost':'http://localhost/letyoufun/index.php/',
             'notFoundImg':'http://localhost/letyoufun/statics/images/upimg/traceling1.jpg'
         }
 };
