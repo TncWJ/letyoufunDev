@@ -21,7 +21,7 @@ angular.module('appUser' , []).controller('LoginController' , function($scope , 
                 //登录成功
                 lyf.goToDetal('user' , '' , 'userInfo' , 'user');
             }else{
-                alert(d.error);
+                lyf.alert('error' , d.error , 3000);
             }
         })
     }
