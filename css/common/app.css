@@ -340,6 +340,20 @@ a.top_edit:link,a.top_edit:visited,a.top_edit:hover,a.top_edit:active{color:#fff
 .plane_order2 .table-view span{width:90px;display:inline-block;}
 .plane_order2 .table-view .color{color:#F60;}
 .pla_pay_btn{margin:30px 20px 0;}
+
+/*酒店*/
+.hotel_list{display:-webkit-box;display:-moz-box;display:box;width:100%;}
+.hotel_list dt{-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;}
+.hotel_list dd{width:70px;text-align:right;padding-top:20px;}
+/*订单*/
+.hotel_order{background:#fff;padding:10px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin:10px 0;}
+.hotel_order h3{font-size:16px;}
+.hotel_order h5,.hotel_order h3,.hotel_order p{margin:0;line-height:25px;color:#333;}
+.hotel_order h5 .color{color:#f60;}
+.hotel_order h5 span{margin-right:20px;}
+.hotel_or_top{margin-bottom:5px;}
+.hotel_or_top h3{border-bottom:1px solid #ddd;line-height:30px;color:#858585;font-size:14px;}
+.hotel_or_top h3 span em{color:#f60;}
 @media screen and (max-width: 480px) and (min-width: 390px){
 .chooze_time .calender{width: 60px;height:40px;}
 .chooze_time .calender img{width: 30px;height:25px;margin-bottom: 5px;}
