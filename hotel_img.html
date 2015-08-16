@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="appTravel">
+<head>
+  <meta charset="utf-8">
+  <title>乐有方</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+     <!--Public-->
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <!--angularjs-->
+   <!--日期--> 
+  <!-- Roboto -->
+  <link rel="stylesheet" href="css/common/ratchet.min.css">
+  <link rel="stylesheet" href="css/common/app.css">
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
+  
+</head>
+<body ng-controller="TravelConController" class="grey">
+ <header class="bar bar-nav orange">
+     <a class="icon icon-left-nav pull-left" onclick="history.go(-1)"></a>
+  <h1 class="title">图片展示</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+    <div class="intro_tra white">
+    <div class="addWrap">
+     <div class="swipe" id="mySwipe">
+      <div class="swipe-wrap">
+        <div><img src="images/img6.jpg" class="w100"></div>
+        <div><img src="images/img6.jpg" class="w100"></div>
+        <div><img src="images/img6.jpg" class="w100"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js/swipe.min.js"></script> 
+  <script type="text/javascript">
+var banner = Swipe(document.getElementById('mySwipe'), {
+	auto: 2000,
+	continuous: true,
+	disableScroll:false
+});
+</script>
+    </div>
+  </div>
+
+</body>
+
+</html>
