@@ -7,170 +7,148 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <script src="js/Common/zepto.js"></script>
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
-    <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
+  <script src="js/Common/ratchet.min.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
   <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
-  <script src="js/Common/comm.js"></script>
+  <script src="js/Common/zepto.js"></script>
+  <script src="js/common/comm.js"></script>
+  <script src="js/common/main.js"></script>
   <script type="text/javascript">
   $(function(){
+    var text="";
+   $.clicktap(".select_dan span");
+   $(".select_fu span").not(".buxi").click(function(){
+	   $(this).addClass("on").siblings(".buxi").removeClass("on");
+	   });
+   $.clicktap(".bot_select .buxi");
+ 
+   $.maskclshow(".xinj a",".popover2");
+   //获取值
+   $(".hotel_sure").click(function(){
+    $(".bot_select_con span").each(function(){
+     if($(this).hasClass("on")&&!$(this).hasClass("buxi")){
+      text=$(this).text()+"、"+text;
+     }
+   });
+   $(".xinj em").text(text); 
+   });
+   
 
-       // Mobiscroll Calendar initialization
-            $('.calender').mobiscroll().calendar({
+   //时间
+    // Mobiscroll Calendar initialization
+            $('#demo').mobiscroll().calendar({
                 theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
                 display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
                 swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-              });
+            });
+             $('#demo2').mobiscroll().calendar({
+                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
+                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
+            });
   });
   </script>
 
+    <script>
+        $(function () {
+           
+        });
+    </script>
+
 </head>
-<body>
+<body class="grey">
  <header class="bar bar-nav orange">
   <a class="icon icon-left-nav pull-left"></a>
-  <h1 class="title">酒店列表</h1>
+  <h1 class="title">酒店查找</h1>
 </header>
-<div class="content" id="main_box">
-  <div class="travel_list">
-				<div class="control-content active">
-					<ul class="table-view">
-						<li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-                        <li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-                        <li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-                        <li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-                        <li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-                        <li class="table-view-cell media nopa user_sc">
-                           <div class="dele_ch"><span></span></div>
-							<a class="navigate-right noma" href="hotelCon.html">
-                                <img class="media-object pull-left" src="images/travel_img.jpg">
-								<div class="media-body">
-                                  <dl class="hotel_list">
-									<dt>
-                                      <h4>重庆如家快捷宾馆</h4>
-									  <p>经济型宾馆</p>
-									  <p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
-                                    </dt>
-                                    <dd>
-                                    <h6><em>￥1256</em>起</h6>
-                                    <p>234米</p>
-                                    </dd>
-								</dl>
-                              </div>  
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+<div class="content grey" id="main_box">
+<div class="hotel_search">
+  <ul class="table-view">
+  <li class="table-view-cell media">
+    <a class="navigate-right" href="plane_chooze.html">
+      <span class="media-object pull-left icon cheng"></span>
+      <em class="pull-right">北京</em>
+      <div class="media-body">
+        入住城市
+      </div>
+    </a>
+  </li>
+  </ul>
+  <ul class="table-view">
+  <li class="table-view-cell media">
+    <a class="navigate-right">
+     <div class="hotel_date">
+      <dl>
+        <dt></dt>
+        <dd>
+          入住日期
+          <input id="demo" placeholder="{{today}}" type="text" time="0"/>
+        </dd>
+      </dl>
+      <p class="line"></p>
+      <dl>
+        <dt></dt>
+        <dd>
+          离店日期
+          <input id="demo2" placeholder="{{today}}" type="text" time="0"/>
+        </dd>
+      </dl>
+      </div>
+    </a>
+  </li>
+  </ul>
+  <ul class="table-view">
+  <li class="table-view-cell media">
+    <a class="navigate-right" href="hotel_select.html">
+      <span class="media-object pull-left icon guan"></span>
+      <em class="pull-right">北京</em>
+      <div class="media-body">
+        关键字/位置/品牌/名称
+      </div>
+    </a>
+  </li>
+  </ul>
+  <ul class="table-view">
+  <li class="table-view-cell media xinj">
+    <a class="navigate-right">
+      <span class="media-object pull-left icon xin"></span>
+      <em class="pull-right">北京</em>
+      <div class="media-body">
+        星级/价格
+      </div>
+    </a>
+  </li>
+</ul>
+<div class="searchBtn pad10">
+  <a href="hotel_list.html" class="btn btn-block btn-orange">搜索</a>
+</div>
+</div>
 </div> 
-<nav class="bar bar-tab plane_foo">
-  <a class="tab-item" href="#">
-    <span class="icon"></span>
-    <span class="tab-label">筛选</span>
-  </a>
-  <a class="tab-item" href="#">
-    <span class="icon"></span>
-    <span class="tab-label">价格/星级</span>
-  </a>
-  <a class="tab-item active" href="#">
-    <span class="icon"></span>
-    <span class="tab-label">票价由低到高</span>
-  </a>
-</nav>
+<div class="mask"></div>
+<div class="botphone popover2">
+  <div class="bot_select select_fu">
+    <h3>星级（复选）</h3>
+    <div class="bot_select_con  clearfix">
+      <span class="buxi">不限</span><span>二星级以下</span><span>三星/舒适</span><span>四星/高档</span><span>五星/豪华</span>
+    </div>
+  </div>
+  <div class="bot_select select_dan">
+    <h3>价格（单选）</h3>
+    <div class="bot_select_con  clearfix">
+      <span>不限</span><span>￥150以下</span><span>￥150-300</span><span>￥301-450</span><span>￥451-550</span><span>￥551-700</span><span>￥701-1000</span><span>￥1000以上</span>
+    </div>
+  </div>
+  <div class="pad10">
+  <a class="publicbtn btn btn-block btn-orange hotel_sure" id="#hotel_sure">确定</a>
+  </div>
+</div>
 </body>
 
 </html>
