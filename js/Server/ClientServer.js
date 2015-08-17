@@ -99,6 +99,16 @@ ClientServer.prototype.init = function($http , $scope){
         })
 
     }
+
+
+    /**
+     * 更新表单值
+     * @param name
+     * @param value
+     */
+    $scope.update = function (name, value) {
+        $scope[name] = value;
+    }
 }
 
 

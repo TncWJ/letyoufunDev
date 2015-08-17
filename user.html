@@ -78,15 +78,16 @@
             </li>
             <li class="table-view-cell shou">
                 <a class="navigate-right" href="#" ng-click="changeTpl('userxin.html');">
-                    <span class="pull-left icon_left"></span>
-                    <em class="pull-right">￥{{(userWallet.customer.credit_limit)}}</em>
+                    <span class="pull-left icon_left" ></span>
+                    <em class="pull-right">{{userInfo.credit_limit|currency:'￥'}}</em>
                     授信额
                 </a>
             </li>
             <li class="table-view-cell zhi">
                 <a class="navigate-right" href="#" ng-click="changeTpl('userzhi.html');">
                     <span class="pull-left icon_left"></span>
-                    <em class="pull-right">￥{{userWallet.customer.cash}}</em>
+                    <em class="pull-right" ng-if="userWallet.customer.cash == null">￥0.00</em>
+                    <em class="pull-right">{{userWallet.customer.cash|currency:'￥'}}</em>
                     个人充值
                 </a>
             </li>
@@ -98,7 +99,7 @@
                 </a>
             </li>
             <li class="table-view-cell zhang">
-                <a class="navigate-right" href="#" ng-click="changeTpl('userZhang.html');">
+                <a class="navigate-right" href="#" ng-click="changeTpl('userzhang.html');">
                     <span class="pull-left icon_left"></span>
                     <em class="pull-right">{{userBill.current_bill_list_count}}</em>
                     个人账单
@@ -111,7 +112,7 @@
                 </a>
             </li>
             <li class="table-view-cell an">
-                <a class="navigate-right" href="usersafe.html">
+                <a class="navigate-right" href="#" ng-click="changeTpl('usersafe.html');">
                     <span class="pull-left icon_left"></span>
                     安全中心
                 </a>
@@ -149,7 +150,7 @@
 
 <script type="text/ng-template" id="userQuan.html">
     <header class="bar bar-nav">
-        <a class="icon icon-left-nav pull-left" ng-click="goToLastTp();"></a>
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
 
         <h1 class="title">优惠券</h1>
     </header>
@@ -200,176 +201,83 @@
     </div>
 </script>
 
-<script type="text/ng-template" id="myOrder.html">
+<script type="text/ng-template" id="userzhang.html">
     <header class="bar bar-nav">
-        <a class="icon icon-left-nav pull-left"></a>
-        <h1 class="title">安全中心</h1>
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">我的账单</h1>
     </header>
     <div class="content pad50 grey" id="main_box">
         <div class="segmented-control ordertit">
             <a class="control-item active" href="#item1mobile">
-                全部
+                本期账单
             </a>
             <a class="control-item" href="#item2mobile">
-                待支付
+                下期账单
             </a>
             <a class="control-item" href="#item3mobile">
-                未出行
+                已还账单
             </a>
         </div>
         <div class="card orderlist">
             <div id="item1mobile" class="control-content active">
+                <div ng-if="userBill.current_bill_list_count == 0">暂无账单信息！</div>
                 <ul class="table-view orderCon">
-                    <li>
+                    <li ng-repeat="v in userBill.current_bill_list.item">
                         <div class="ordertop table-view-cell media">
                             <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
+                                <h3>{{v.order_title}}</h3>
                                 <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                    <p>月供金额：{{v.month_amount|currency:'￥'}}</p>
+                                    <p>本期待还：{{v.paid_amount|currency:'￥'}}</p>
+                                    <p>还款到期日：{{v.pay_date}} 剩余{{v.left_days}}天</p>
                                 </div>
                             </a>
                         </div>
                         <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">立即还款</a>
+                            <!--<i class="btn btn-orange2 btn-outlined">取消订单</i>-->
                         </div>
                     </li>
                 </ul>
             </div>
             <div id="item2mobile" class="control-content">
+                <div ng-if="userBill.next_bill_list == 0">暂无账单信息！</div>
                 <ul class="table-view orderCon">
-                    <li>
+                    <li ng-repeat="v in userBill.next_bill_list.item">
                         <div class="ordertop table-view-cell media">
                             <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
+                                <h3>{{v.order_title}}</h3>
                                 <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                    <p>月供金额：{{v.month_amount|currency:'￥'}}</p>
+                                    <p>本期待还：{{v.paid_amount|currency:'￥'}}</p>
+                                    <p>还款到期日：{{v.pay_date}} 剩余{{v.left_days}}天</p>
                                 </div>
                             </a>
                         </div>
                         <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">立即还款</a>
+                            <!--<i class="btn btn-orange2 btn-outlined">取消订单</i>-->
                         </div>
                     </li>
                 </ul>
             </div>
             <div id="item3mobile" class="control-content">
+                <div ng-if="userBill.paid_bill_list == 0">暂无账单信息！</div>
                 <ul class="table-view orderCon">
-                    <li>
+                    <li ng-repeat="v in userBill.paid_bill_list.item">
                         <div class="ordertop table-view-cell media">
                             <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
+                                <h3>{{v.order_title}}</h3>
                                 <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
+                                    <p>月供金额：{{v.month_amount|currency:'￥'}}</p>
+                                    <p>本期待还：{{v.paid_amount|currency:'￥'}}</p>
+                                    <p>还款到期日：{{v.pay_date}} 剩余{{v.left_days}}天</p>
                                 </div>
                             </a>
                         </div>
                         <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordertop table-view-cell media">
-                            <a class="navigate-right">
-                                <p><i>酒店</i> | <span>待支付</span></p>
-                                <h3>重庆7天连锁酒店</h3>
-                                <div class="orderintro">
-                                    <p>高级大床房1间</p>
-                                    <p>2015-03-25至2015-03-26共1晚</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="orderbot">
-                            <a href="pay.html" class="btn btn-orange2 btn-outlined">在线支付</a>
-                            <i class="btn btn-orange2 btn-outlined">取消订单</i>
+                            <a href="pay.html" class="btn btn-orange2 btn-outlined">立即还款</a>
+                            <!--<i class="btn btn-orange2 btn-outlined">取消订单</i>-->
                         </div>
                     </li>
                 </ul>
@@ -380,16 +288,17 @@
 
 <script type="text/ng-template" id="userxin.html">
     <header class="bar bar-nav">
-        <a class="icon icon-left-nav pull-left"></a>
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
         <h1 class="title">个人充值</h1>
     </header>
     <div class="content pad50 grey" id="main_box">
         <div class="cz_main">
             <div class="cz_box">
-                信用总额<br><span>￥<i>3000.00</i></span>
+                信用总额<br><span>￥<i>{{userInfo.credit_limit|currency:''}}</i></span>
             </div>
             <div class="zhu_btn">
-                <a class="btn btn-block btn-orange" href="userxinsucc.html">立即激活</a>
+                <a class="btn btn-block btn-orange" href="userxinsucc.html" ng-if="userInfo.creadit_activate != 1">立即激活</a>
+                <a class="btn btn-block btn-grey" href="javascript:void(0);" ng-if="userInfo.creadit_activate == 1">已经激活</a>
             </div>
             <div class="shuom">
                 <h3>授信额度说明：</h3>
@@ -404,13 +313,14 @@
 
 <script type="text/ng-template" id="userzhi.html">
     <header class="bar bar-nav">
-        <a class="icon icon-left-nav pull-left"></a>
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
         <h1 class="title">个人充值</h1>
     </header>
     <div class="content pad50 grey" id="main_box">
         <div class="cz_main">
             <div class="cz_box">
-                可用余额<br><span>￥<i>1999.00</i></span>
+                可用余额<br><span ng-if="userWallet.customer.cash == null || userWallet.customer.cash == 0">￥<i>0.00</i></span>
+                <span>￥<i>{{userWallet.customer.cash|currency:''}}</i></span>
             </div>
             <div class="zhu_btn">
                 <button class="btn btn-block btn-orange">充值余额(支付宝)</button>
@@ -420,57 +330,26 @@
         </div>
     </div>
 </script>
-<script type="text/ng-template" id="userzhang.html">
+<script type="text/ng-template" id="myOrder.html">
     <header class="bar bar-nav orange">
-        <a class="icon icon-left-nav pull-left"></a>
-        <h1 class="title">我的账单</h1>
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">我的订单</h1>
     </header>
     <div class="content pad50 grey" id="main_box">
+        <div ng-if="myOrder.order_list_count == 0 || myOrder.order_list_count == null">暂无订单信息！</div>
         <ul class="table-view huan_zh">
-            <li class="table-view-cell media pad10">
-                <img class="media-object pull-left" src="images/user/img.jpg">
-                <div class="media-body">
-                    <dl class="clearfix">
-                        <dt>
-                        <h3>重庆如家快捷宾馆</h3>
-                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
-                        <p>下次还款日期：2015年9月10日</p>
-                        </dt>
-                        <dd>
-                            <h5>￥2850</h5>
-                            <a href="pay.html" class="btn btn-orange">还款</a>
-                        </dd>
-                    </dl>
-                </div>
-            </li>
-            <li class="table-view-cell media pad10">
-                <img class="media-object pull-left" src="images/user/img.jpg">
+            <li class="table-view-cell media pad10" ng-repeat="v in myOrder.order_list">
+                <a href="{{v.product_url}}"><img class="media-object pull-left" ng-src="v.product_url"></a>
                 <div class="media-body">
                     <dl>
                         <dt>
-                        <h3>重庆如家快捷宾馆</h3>
-                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
+                        <h3>{{v.product}}</h3>
+                        <p><span>月供<i>{{v.month_amount|currency:'￥'}}</i></span><span>分<i>{{v.finance_count}}</i>期</span></p>
                         <p>下次还款日期：2015年9月10日</p>
                         </dt>
                         <dd>
-                            <h5>￥2850</h5>
-                            <a href="pay.html" class="btn btn-orange">还款</a>
-                        </dd>
-                    </dl>
-                </div>
-            </li>
-            <li class="table-view-cell media pad10">
-                <img class="media-object pull-left" src="images/user/img.jpg">
-                <div class="media-body">
-                    <dl>
-                        <dt>
-                        <h3>重庆如家快捷宾馆</h3>
-                        <p><span>月供<i>￥214</i></span><span>分<i>12</i>期</span></p>
-                        <p>下次还款日期：2015年9月10日</p>
-                        </dt>
-                        <dd>
-                            <h5>￥2850</h5>
-                            <a href="pay.html" class="btn btn-orange">还款</a>
+                            <h5>{{(v.month_amount * v.finance_count)|currency:'￥'}}</h5>
+                            <a href="pay.html" class="btn btn-orange">支付</a>
                         </dd>
                     </dl>
                 </div>
@@ -478,7 +357,104 @@
         </ul>
     </div>
 </script>
-<script type="text/ng-template"></script>
+<script type="text/ng-template" id="usersafe.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">安全中心</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <section>
+            <dl class="userinfor clearfix">
+                <dt><img src="images/user/user.jpg"></dt>
+                <dd>
+                    <p>{{userInfo.real_name}}</p>
+                    <p>{{userInfo.user_login}}</p>
+                </dd>
+            </dl>
+        </section>
+        <ul class="table-view usersafe">
+            <li class="table-view-cell">
+                <a class="navigate-right">
+                    <em class="pull-right" ng-if="userInfo.user_status == 1">已验证</em>
+                    <em class="pull-right" ng-if="userInfo.user_status != 1">未验证</em>
+                    绑定邮箱<span>{{userInfo.user_login}}</span>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right pull-right" href="#" ng-click="changeTpl('changeMoblie.html');">
+                    <em class="pull-right">修改</em>
+                </a>
+
+                绑定手机<span>{{userInfo.phone_number}}</span>
+
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right" href="#" ng-click="changeTpl('changePass.html' , 'changeLoginPass')">
+                    <em class="pull-right">已设置</em>
+                    登录密码<span>******</span>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right" href="#" ng-click="changeTpl('changePass.html' , 'changePayPass')">
+                    <em class="pull-right">已设置</em>
+                    交易密码<span>*******</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</script>
+
+<script type="text/ng-template" id="changeMoblie.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">手机号</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <form class="input-group chpass">
+            <div class="input-row border_radius">
+                <label>手机号</label>
+                <input type="text" placeholder="手机号可用于登陆">
+            </div>
+            <div class="padlr10">
+                <button class="btn btn-block btn-orange loginbtn">完成</button>
+            </div>
+        </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="changePass.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">修改密码</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <form class="input-group chpass">
+            <div class="input-row border_radius">
+                <label>当前密码</label>
+                <input type="password" placeholder="输入您的当前密码" ng-model="curPass" ng-change="update('curPass' , curPass);" id="curPass">
+            </div>
+            <div class="input-row border_radius">
+                <label>新密码</label>
+                <input type="password" placeholder="设置新密码" ng-model="pass1" ng-change="update('pass1' , pass1);" id="pass1">
+            </div>
+            <div class="input-row border_radius">
+                <label>确认密码</label>
+                <input type="password" placeholder="再输入一次新密码" ng-model="pass2" ng-change="update('pass2' , pass2);" id="pass2">
+            </div>
+            <div class="input-row border_radius">
+                <label>验证码</label>
+                <input type="text" placeholder="数字验证码"  ng-model="checkCode" ng-change="update('checkCode' , checkCode);">
+            </div>
+            <div class="padlr10">
+                <input type="button" class="btn btn-block btn-grey loginbtn yzmbtn" value="{{time}}" ng-click="check();">
+            </div>
+            <div class="padlr10">
+                <button class="btn btn-block btn-orange loginbtn" ng-click="submit(btn);">修改</button>
+            </div>
+
+        </form>
+    </div>
+</script>
 <div ng-include="tplName"></div>
 </body>
 

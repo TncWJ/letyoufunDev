@@ -63,9 +63,6 @@ angular.module('appUser', []).controller('RegController', function ($scope, $htt
     }
 
 
-    $scope.update = function (name, value) {
-        $scope[name] = value;
-    }
 
 
     /**
@@ -73,11 +70,11 @@ angular.module('appUser', []).controller('RegController', function ($scope, $htt
      */
     $scope.getCheckCode = function () {
         var phone = {'phone_number': $scope.moblie};
-        server.createRequest('user', 'getSMSCode', '', phone).then(function (d) {
+        server.createRequest('user', 'getRegSMSCode', '', phone).then(function (d) {
             if (d.state == "success") {
                 $scope.time = '已发送';
             } else {
-                alert('发送失败，请联系管理员解决！');
+                lyf.alert('error','网络错误，发送失败！' , 3000);
             }
         })
 
