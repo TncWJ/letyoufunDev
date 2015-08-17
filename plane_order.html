@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html ng-app="appPlaneBook">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐有方</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--Public-->
+    <script src="js/Common/zepto.js"></script>
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/PlaneBookController.js"></script>
+    <!-- Roboto -->
+    <script src="js/Common/zepto.js"></script>
+    <link rel="stylesheet" href="css/common/ratchet.min.css"/>
+    <link rel="stylesheet" href="css/common/app.css"/>
+</head>
+<body class="grey" ng-controller="PlaneBookController">
+<header class="bar bar-nav orange">
+    <a class="icon icon-left-nav pull-left" onclick="history.go(-1)"></a>
+
+    <h1 class="title">订单详情</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+    <div class="plane_cw plane_order">
+        <section>
+            <div class="plane_infor">
+                <p class="hk_infor">7月21日，周二出发</p>
+
+                <div class="add_plane pad10">
+                    <div class="addbox1">
+                        <h3>深圳</h3>
+                        <h5>07:13</h5>
+
+                        <p>深圳宝安国际机场</p>
+                    </div>
+                    <div class="addbox2">
+                        <img src="images/plane_icon3.jpg"/>
+                    </div>
+                    <div class="addbox1">
+                        <h3>深圳</h3>
+                        <h5>07:13</h5>
+
+                        <p>深圳宝安国际机场</p>
+                    </div>
+                </div>
+                <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+            </div>  
+        </section>
+    </div>
+    <section>
+            <div class="pla_or_main">
+              <h3 class="pla_or_tit">乘客信息</h3>
+              <div class="ck_con">
+              <dl class="ck_infor">
+                <dt></dt>
+                <dd>
+                  <form class="input-group">
+                    <div class="input-row">
+                      <label>成人票</label>
+                      <input type="text" placeholder="姓名">
+                    </div>
+                    <div class="input-row">
+                      <label>身份证</label>
+                      <input type="email" placeholder="必填">
+                    </div>
+                  </form>
+                </dd>
+              </dl>
+              </div>
+              <p class="addxck">添加新乘客</p>
+            </div>
+            <div class="pla_or_main">
+              <h3 class="pla_or_tit">联系人信息</h3>
+              <dl>
+                <dt></dt>
+                <dd>
+                  <form class="input-group">
+                    <div class="input-row">
+                      <label>姓名</label>
+                      <input type="text" placeholder="必填">
+                    </div>
+                    <div class="input-row">
+                      <label>联系电话</label>
+                      <input type="email" placeholder="必填">
+                    </div>
+                  </form>
+                </dd>
+              </dl>
+            </div>
+        </section>
+</div>
+<div class="plane_total clearfix">
+  <div class="pull-left">
+    <p><em>总额<span>￥340</span></em><em><span>1</span>成人</em></p>
+    <p><em>分<span>10期</span></em><em>月供<span>￥30</span></em></p>
+  </div>
+  <div class="pull-right">
+    <span class="feiy">费用明细</span>
+    <a href="plane_order2.html" class="btn btn-orange">下一步</a>
+  </div>
+</div>
+<div class="mask"></div>
+<div class="plane_pri">
+  <p class="hk_infor">7月21日，周二出发</p>
+  <div class="pri_infor">
+    <p class="clearfix"><span>成人价：</span><em>￥290×1</em></p>
+    <p class="clearfix"><span>机建/燃油：</span><em>￥50×1</em></p>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+  	//明细展示
+  	var show=false;
+  	$(".feiy").tap(function(){
+  		if(!show){
+  			$(".plane_pri").show().animate({
+			bottom: "55px"},150);
+		$(".mask").show();
+		show=true;
+		}else{
+  		$(".mask").hide();
+		$(".plane_pri").hide().css("bottom","0px");
+		show=false;	
+	  }
+	});
+
+  	$(".mask").tap(function(){
+		$(".mask").hide();
+		$(".plane_pri").hide().css("bottom","0px");
+		show=false;	
+	});	
+	//添加删除乘客信息
+	$(".addxck").tap(function(){
+		if($(".ck_infor").length>0){
+			$(".ck_con").append($(".ck_infor").eq(0).clone(true));
+		}else{
+			var oDiv=$("<dl class='ck_infor'><dt></dt><dd><form class='input-group'><div class='input-row'><label>成人票</label><input type='text' placeholder='姓名'></div><div class='input-row'><label>身份证</label><input type='email'placeholder='必填'></div></form></dd></dl>");
+			$(".ck_con").append(oDiv);
+		}
+		
+		$(".ck_infor dt").on("tap",function(){
+		$(this).parent().remove();
+	});	
+	});
+	$(".ck_infor dt").on("tap",function(){
+		$(this).parent().remove();
+	});	
+  });
+
+</script>
+</body>
+</html>

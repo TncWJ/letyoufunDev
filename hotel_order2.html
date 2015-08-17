@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="appPlaneBook">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐有方</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--Public-->
+    <script src="js/Common/zepto.js"></script>
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/PlaneBookController.js"></script>
+    <!-- Roboto -->
+    <link rel="stylesheet" href="css/common/ratchet.min.css"/>
+    <link rel="stylesheet" href="css/common/app.css"/>
+</head>
+<body class="grey" ng-controller="PlaneBookController">
+<header class="bar bar-nav orange">
+    <a class="icon icon-left-nav pull-left" onclick="history.go(-1)"></a>
+
+    <h1 class="title">订单填写</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+    <div class="hotel_order">
+        <div class="hotel_or_top">
+          <h3 class="clearfix"><span class="pull-left">订单号：<em>123232231</em></span><span class="pull-right">订单状态：<em>未付款</em></span></h3>
+        </div>
+        <h3>重庆如家快捷酒店</h3>
+        <p>豪华大床房</p>
+        <h5><span>入住：<em>7月24日</em></span><span>离店：<em>7月26日</em></span></h5>
+        <p>早餐：<span>无早餐</span></p>
+        <h5><span>费用：<em class="color">￥542</em></span></h5>
+        <h5><span>分期：<em class="color">分10期</em></span><span>月供：<em class="color">￥54</em></span></h5>
+    </div>
+    <section>
+      <div class="index_box plane_order2">
+        <h3>预订人信息</h3>
+        <ul class="table-view">
+          <li class="table-view-cell"><span>预订人姓名</span><em>2015-07-18</em></li>
+          <li class="table-view-cell"><span>预订人手机</span><em>2015-07-18 14:33</em></li>
+        </ul>
+      </div>    
+            
+  </section>
+</div>
+ <div class="pla_pay_btn">
+      <a href="pay.html" class="btn btn-block btn-orange">立即支付</a>
+    </div>
+</body>
+</html>

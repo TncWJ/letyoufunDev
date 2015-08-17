@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="appTravel">
+<head>
+	<meta charset="utf-8">
+	<title>乐有方</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+   
+	<link rel="stylesheet" href="css/common/ratchet.min.css">
+	<link rel="stylesheet" href="css/common/app.css">
+	<script src="js/Common/zepto.js"> </script>
+    <script type="text/javascript">
+     $(function(){
+     $(".top_edit").tap(function(){
+     	if(!$(this).hasClass("cancel")){
+     		$(this).text("取消").addClass("cancel");
+     		$(".sc_dele_btn,.sc_mask,.dele_ch").show();
+     	}else{
+     		$(this).text("编辑").removeClass("cancel");;
+     		$(".dele_ch").hide();
+     		$(".sc_dele_btn,.sc_mask,.dele_ch").hide();
+     	}
+			 
+		 }); 
+     $(".sc_mask").tap(function(){
+        if(!$(this).hasClass("on")){
+        	$(this).siblings('.dele_ch').find('span').addClass("on");
+     		$(this).addClass("on");
+     	}else{
+     		$(this).siblings('.dele_ch').find('span').removeClass("on");
+     		$(this).removeClass("on");
+     	}
+     $(".sc_dele_btn").tap(function(){
+     	$(".user_sc").each(function(){
+     		var oSpan=$(this).find(".dele_ch span");
+     		if(oSpan.hasClass('on')){
+     			$(this).remove();
+     		}
+     	});
+     });	
+
+     });
+});
+		
+ </script>
+
+</head>
+<body ng-controller="TravelListController">
+	<header class="bar bar-nav orange">
+		<a class="icon icon-left-nav pull-left"></a>
+		<a class="pull-right top_edit top_txt">编辑</a>
+		<h1 class="title">全部收藏</h1>
+	</header>
+	<div class="content" id="main_box">
+		<section>
+			<div class="travel_list">
+				<div class="control-content active">
+					<ul class="table-view">
+						<li class="table-view-cell media nopa user_sc">
+                           <div class="dele_ch"><span></span></div>
+							<a class="navigate-right noma" href="#">
+                                <img class="media-object pull-left" src="images/travel_img.jpg">
+								<div class="media-body">
+									<h4>&lt;张家界-黄龙洞-凤凰古镇4日游>包含西安机
+场接送，含凤凰门票</h4>
+									<h6><em>￥1256</em>起</h6>
+									<p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
+								</div>
+							</a>
+							<div class="sc_mask"></div> 
+						</li>
+                        <li class="table-view-cell media nopa user_sc">
+                           <div class="dele_ch"><span></span></div>
+							<a class="navigate-right noma" href="#">
+                                <img class="media-object pull-left" src="images/travel_img.jpg">
+								<div class="media-body">
+									<h4>&lt;张家界-黄龙洞-凤凰古镇4日游>包含西安机
+场接送，含凤凰门票</h4>
+									<h6><em>￥1256</em>起</h6>
+									<p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
+								</div>
+							</a>
+							<div class="sc_mask"></div> 
+						</li>
+                        <li class="table-view-cell media nopa user_sc">
+                           <div class="dele_ch"><span></span></div>
+							<a class="navigate-right noma" href="#">
+                                <img class="media-object pull-left" src="images/travel_img.jpg">
+								<div class="media-body">
+									<h4>&lt;张家界-黄龙洞-凤凰古镇4日游>包含西安机
+场接送，含凤凰门票</h4>
+									<h6><em>￥1256</em>起</h6>
+									<p><span>月供<em>160</em></span><span>分<em>12</em>期</span></p>
+								</div>
+							</a>
+							<div class="sc_mask"></div> 
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+     <div class="sc_dele_btn btn  btn-block">删除</div>
+	</div>
+</body>
+
+</html>

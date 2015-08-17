@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appUser">
 <head>
   <meta charset="utf-8">
   <title>乐有方</title>
@@ -7,12 +7,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+    <!--Public-->
+    <script src="js/Common/zepto.js"></script>
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+    <script src="js/Common/zepto.js"></script>
+    <!--angularjs-->
+    <script src="js/Controller/User/LoginController.js"></script>
+
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/comm.css">
   <link rel="stylesheet" href="css/user.css">
 </head>
-<body class="grey">
+<body class="grey" ng-controller="LoginController">
  <header class="bar bar-nav">
   <a class="icon icon-left-nav pull-left"></a>
   <a class="icon pull-right reg" href="register.html">注册</a>
@@ -22,13 +32,13 @@
   <form class="input-group login">
   <div class="input-row border_radius">
     <label>账	号</label>
-    <input type="text" placeholder="请输入您的手机号">
+    <input type="text" placeholder="请输入您的手机号" id="userName">
   </div>
   <div class="input-row border_radius">
     <label>密	码</label>
-    <input type="password" placeholder="请输入您的密码">
+    <input type="password" placeholder="请输入您的密码" id="userPass">
   </div>
-  <button class="btn btn-block btn-orange loginbtn">登陆</button>
+  <button class="btn btn-block btn-orange loginbtn" ng-click="doLogin();">登陆</button>
   <p class="wangpass"><a href="#">忘记密码</a></p>
 </form>
  </div>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>乐有方</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <script src="js/Common/zepto.js"></script>
+    <!-- Roboto -->
+  <link rel="stylesheet" href="css/common/ratchet.min.css">
+  <link rel="stylesheet" href="css/common/comm.css">
+  <link rel="stylesheet" href="css/user.css">
+  <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="js/mobiscroll.zepto.js"></script>
+  <script src="js/mobiscroll.core.js"></script>
+  <script src="js/mobiscroll.widget.js"></script>
+  <script src="js/mobiscroll.scroller.js"></script>
+  <script src="js/mobiscroll.select.js"></script>
+  <script src="js/mobiscroll.util.datetime.js"></script>
+  <script src="js/mobiscroll.datetimebase.js"></script>
+  <script src="js/mobiscroll.datetime.js"></script>
+  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+  <script>
+        $(function () {
+
+            function init() {
+                
+                $('.demo_select').mobiscroll().select({
+                    lang: "zh"        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+				$('#demo_date').mobiscroll().date({
+                   lang: "zh"   
+                });
+            }   
+            $('.demo-cont').hide();			
+            $("#demo_cont_select").show();
+            $("#demo_cont_date").show();
+			     init();
+          
+        });
+    </script>
+</head>
+<body class="grey">
+ <header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">安全中心</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+  <section>
+  <ul class="table-view usersafe userinCon usertou">
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchange.html">
+      <em class="pull-right icon icon-person"></em>
+      头像
+    </a>
+  </li>
+  </ul>
+  </section>
+  <ul class="table-view usersafe userinCon">
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchange.html">
+      <em class="pull-right">选填</em>
+      用户名
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchange.html">
+      <em class="pull-right">选填</em>
+      邮箱
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchange.html">
+      <em class="pull-right">选填</em>
+      姓名
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right">
+      <div data-role="fieldcontain" class="demo-cont" id="demo_cont_select">
+            <label for="demo_select">性别</label>
+            <select name="Cities" id="demo_select" data-role="none" class="demo_select">
+                <option value="0">选填</option>
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>   
+        </div>
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right">
+     <div data-role="fieldcontain" class="demo-cont" id="demo_cont_date">
+            <label for="demo_date">生日</label>
+            <input type="text" id="demo_date" value="选填" />  
+        </div>
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchange.html">
+      <em class="pull-right">选填</em>
+      所在城市
+    </a>
+  </li>
+  <li class="table-view-cell">
+    <a class="navigate-right" href="userchpass.html">
+      修改密码
+    </a>
+  </li>
+</ul>
+<div class="zhu_btn pad10"><button class="btn btn-block">注销登陆</button></div>
+ </div>
+</body>
+
+</html>

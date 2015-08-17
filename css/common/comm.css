@@ -36,6 +36,12 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 .hasm10{margin:10px;}
 .nopa{padding: 10px;}
 .btn-orange{background:#ff6600;color:#fff;border:none;height:40px;line-height:40px;padding:0px;}
+a.btn-orange:link,a.btn-orange:hover,a.btn-orange:visited{color:#fff;}
+.btn-grey{background:#e2e2e2;border:none;height:40px;line-height:40px;padding:0px;}
+.btn-outlined.btn-orange2{color:#f60;}
+.btn-outlined.btn-orange2.hbg{background:#fff;line-height:40px;height:40px;padding:0px;}
+.btn-orange2{border: 1px solid #f60;padding:4px 8px 4px;}
+.white{background:#fff;}
 /*主体部分*/
 .over{height:100%;overflow:hidden;}
 .content.grey{background: #f4f4f4;}
@@ -48,3 +54,24 @@ h1,h2,h3,h4,h5,h6{font-size:14px;}
 	min-height:100%;
 	padding-bottom:50px;
 }
+.orange{background:#ff6102;}
+.orange .title,.orange .icon,.orange .btn-link{color:#fff;background:none;}
+.bar.orange{border:none;}
+/*底部*/
+/*footer*/
+.sfoot .tab-item:nth-child(1) .icon{background:url(../../images/footicon.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(2) .icon{background:url(../../images/footicon2.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(3) .icon{background:url(../../images/footicon3.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(4) .icon{background:url(../../images/footicon4.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item.active{color:#fd882b;}
+.sfoot .tab-item:nth-child(1).tab-item.active .icon{background:url(../../images/footicon_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(2).tab-item.active .icon{background:url(../../images/footicon2_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(3).tab-item.active .icon{background:url(../../images/footicon3_on.jpg) no-repeat center;background-size:24px;}
+.sfoot .tab-item:nth-child(4).tab-item.active .icon{background:url(../../images/footicon4_on.jpg) no-repeat center;background-size:24px;}
+.sfoot.bar-tab .tab-item span.tab-label{line-height:15px;}
+/*弹出框*/
+.alertbox{background:#fff;border:1px solid #ddd;width:250px;height:140px;position:fixed;top:50%;margin-top:-70px;left:50%;margin-left:-125px;display:none;}
+.alertbox h3{position:relative;font-size:16px;padding:5px 10px;margin:0;background:#f60;color:#fff;}
+.alertbox h3 .sclose{position:absolute;right:10px;top:5px;font-size:20px;}
+.alertmain{padding:10px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;height:70px;text-align:center;line-height:40px;font-size:14px;}
+.alertbot{text-align:right;padding:5px 10px;}
