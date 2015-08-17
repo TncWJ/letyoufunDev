@@ -184,3 +184,15 @@ lyf.checkRpPass = function(pass1 , pass2){
         var host = window.location.href;
          window.location.href = conf.common.serverTplDir+tplName+'?client_host='+host;
     }
+
+/**
+ * 添加后退事件
+ */
+    $(function(){
+        $('.pull-left').each(function(){
+            $(this).click(function(){
+                    window.history.go(-1);
+                return false;
+            })
+        })
+    })

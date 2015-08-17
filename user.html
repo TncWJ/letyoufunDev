@@ -7,11 +7,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!--Public-->
+    <script src="js/Common/zepto.js"></script>
     <script src="conf/conf.js"></script>
+    <script src="js/Common/zepto.js"></script>
     <script src="js/Common/main.js"></script>
     <script src="js/Common/angular.min.js"></script>
     <script src="js/Server/ClientServer.js"></script>
-    <script src="js/Common/zepto.js"></script>
     <!--angularjs-->
     <script src="js/Controller/User/UserCenterController.js"></script>
     <!-- Roboto -->
@@ -76,14 +77,14 @@
                 </a>
             </li>
             <li class="table-view-cell shou">
-                <a class="navigate-right" href="userxin.html">
+                <a class="navigate-right" href="#" ng-click="changeTpl('userxin.html');">
                     <span class="pull-left icon_left"></span>
                     <em class="pull-right">￥{{(userWallet.customer.credit_limit)}}</em>
                     授信额
                 </a>
             </li>
             <li class="table-view-cell zhi">
-                <a class="navigate-right" href="userzhi.html">
+                <a class="navigate-right" href="#" ng-click="changeTpl('userzhi.html');">
                     <span class="pull-left icon_left"></span>
                     <em class="pull-right">￥{{userWallet.customer.cash}}</em>
                     个人充值
@@ -97,7 +98,7 @@
                 </a>
             </li>
             <li class="table-view-cell zhang">
-                <a class="navigate-right" href="userzhang.html">
+                <a class="navigate-right" href="#" ng-click="changeTpl('userZhang.html');">
                     <span class="pull-left icon_left"></span>
                     <em class="pull-right">{{userBill.current_bill_list_count}}</em>
                     个人账单
@@ -199,7 +200,7 @@
     </div>
 </script>
 
-<script type="text/ng-template" id="myorder.html">
+<script type="text/ng-template" id="myOrder.html">
     <header class="bar bar-nav">
         <a class="icon icon-left-nav pull-left"></a>
         <h1 class="title">安全中心</h1>
