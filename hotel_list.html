@@ -10,24 +10,26 @@
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
-    <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
-  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+  <script src="js/Common/zepto.js"></script>
   <script src="js/common/comm.js"></script>
   <script type="text/javascript">
-  $(function(){
-
-       // Mobiscroll Calendar initialization
-            $('.calender').mobiscroll().calendar({
-                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
-                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
-                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-              });
-  });
+   $(function(){
+   	  $.maskshow(".haschone",".selectone");
+   	  $.maskshow(".haschtwo",".selecttwo");
+   	  $(".link_list li").tap(function(){
+   	  	$(this).addClass("on").siblings().removeClass('on');
+   	  	$(".mask,.popover2").hide();
+        var text=$(this).text();
+        if($(this).parents().hasClass("selecttwo")){
+          $(".haschtwo .tab-label").text(text);
+          $(".haschtwo").addClass("active").siblings().removeClass("active");
+        }else if($(this).parents().hasClass("selectone")){
+          $(".haschone .tab-label").text(text);
+          $(".haschone").addClass("active").siblings().removeClass("active");
+        }
+   	  });
+   });
   </script>
-
 </head>
 <body>
  <header class="bar bar-nav orange">
@@ -157,19 +159,41 @@
 			</div>
 </div> 
 <nav class="bar bar-tab plane_foo">
-  <a class="tab-item" href="#">
+  <a class="tab-item" href="hotel_select.html">
     <span class="icon"></span>
     <span class="tab-label">筛选</span>
   </a>
-  <a class="tab-item" href="#">
+  <a class="tab-item haschone">
     <span class="icon"></span>
     <span class="tab-label">价格/星级</span>
   </a>
-  <a class="tab-item active" href="#">
+  <a class="tab-item pai haschtwo">
     <span class="icon"></span>
-    <span class="tab-label">票价由低到高</span>
+    <span class="tab-label">默认排序</span>
   </a>
 </nav>
+<div class="mask"></div>
+<div class="botphone popover2 selectone">
+  <h3 class="choo_title"><em>取消</em>选择排序方式</h3>
+  <ul class="link_list">
+    <li>100以下</li>
+    <li>100-200</li>
+    <li>200-300</li>
+    <li>300-500</li>
+    <li>500-700</li>
+    <li>700-1000</li>
+    <li>1000以上</li>
+  </ul>
+</div>
+<div class="botphone popover2 selecttwo">
+  <h3 class="choo_title"><em>取消</em>选择排序方式</h3>
+  <ul class="link_list">
+    <li>价格从高到低</li>
+    <li>价格从低到高</li>
+    <li>销量从高到低</li>
+    <li>距离从近到远</li>
+  </ul>
+</div>
 </body>
 
 </html>
