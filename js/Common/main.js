@@ -192,7 +192,6 @@ lyf.checkRpPass = function(pass1 , pass2){
         $('.pull-left').each(function(){
             $(this).click(function(){
                     window.history.go(-1);
-                return false;
             })
         })
     })
