@@ -10,28 +10,30 @@
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
-  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
-  <script src="js/Common/ratchet.min.js"></script>
-  <script src="js/jquery-1.11.1.min.js"></script>
-  <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
-  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.1.min.css" type="text/css" />
   <script src="js/Common/zepto.js"></script>
+  <script src="js/Common/ratchet.min.js"></script>
+  <script src="js/mobiscroll.custom-2.16.1.min.js"></script>
+  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
   <script src="js/common/comm.js"></script>
   <script src="js/common/main.js"></script>
   <script type="text/javascript">
   $(function(){
     var text="";
-   $.clicktap(".select_dan span");
-   $(".select_fu span").not(".buxi").click(function(){
+   $.tap(".select_dan span");
+   $(".select_fu span").not(".buxi").tap(function(){
 	   $(this).addClass("on").siblings(".buxi").removeClass("on");
 	   });
-   $.clicktap(".bot_select .buxi");
+   $.tap(".bot_select .buxi");
  
-   $.maskclshow(".xinj a",".popover2");
+   $.maskshow(".xinj a",".popover2");
    //获取值
-   $(".hotel_sure").click(function(){
+   $(".xinj a").tap(function(){  
+   text="";
+  });
+   $(".hotel_sure").tap(function(){
     $(".bot_select_con span").each(function(){
-     if($(this).hasClass("on")&&!$(this).hasClass("buxi")){
+     if($(this).hasClass("on")&&(!$(this).hasClass("buxi"))){
       text=$(this).text()+"、"+text;
      }
    });
@@ -42,13 +44,11 @@
    //时间
     // Mobiscroll Calendar initialization
             $('#demo').mobiscroll().calendar({
-                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
                 display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
                 swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
             });
              $('#demo2').mobiscroll().calendar({
-                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
                 display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
                 swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
@@ -136,13 +136,13 @@
   <div class="bot_select select_fu">
     <h3>星级（复选）</h3>
     <div class="bot_select_con  clearfix">
-      <span class="buxi">不限</span><span>二星级以下</span><span>三星/舒适</span><span>四星/高档</span><span>五星/豪华</span>
+      <span class="buxi on">不限</span><span>二星级以下</span><span>三星/舒适</span><span>四星/高档</span><span>五星/豪华</span>
     </div>
   </div>
   <div class="bot_select select_dan">
     <h3>价格（单选）</h3>
     <div class="bot_select_con  clearfix">
-      <span>不限</span><span>￥150以下</span><span>￥150-300</span><span>￥301-450</span><span>￥451-550</span><span>￥551-700</span><span>￥701-1000</span><span>￥1000以上</span>
+      <span class="buxi on">不限</span><span>￥150以下</span><span>￥150-300</span><span>￥301-450</span><span>￥451-550</span><span>￥551-700</span><span>￥701-1000</span><span>￥1000以上</span>
     </div>
   </div>
   <div class="pad10">

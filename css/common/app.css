@@ -272,6 +272,23 @@ a.more_cw span{font-size: 12px;margin-left: 5px;}
 .traveldate span.on{background: #FF6002;color: #fff;}
 .tra_money{padding:60px 10px 10px;border-bottom: 1px solid #ccc;}
 .tra_money input{width: 30%;display: inline-block;margin-right: 5px;}
+/*团期*/
+.chu_people{border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:10px;}
+.chu_people,.chu_people p{color:#333;}
+.chu_people .chooze_num{font-size:15px;}
+.chu_people .chooze_num .num_add{float:left;height:24px;margin-right:20px;}
+.num_money span{color:#F60;margin-left:5px;}
+.chu_people .chooze_num .num_add span{width:30px;height:24px;line-height:24px;background:#F60;color:#fff;text-align:center;display:block;float:left;font-weight:bold;font-size:18px;}
+.chu_people .chooze_num .num_add span.num{background:none;border:1px solid #F60;width:40px;color:#333;font-size:13px;font-weight:normal;}
+.chu_people p .icon{color:#F60; vertical-align:middle;}
+.chu_people .tra_txt{margin:5px 0 0;}
+.tra_bot{position:fixed;bottom:0;left:0;right:0;margin:auto;width:100%;max-width:640px;height:50px;border-top:1px solid #ddd;background:#fff;padding:5px 10px;}
+.tra_bot dl{display:-moz-box;display:-webkit-box;display:box;width:100%;}
+.tra_bot dl dt{-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;}
+.tra_bot dl dt p{margin:0px;}
+.tra_bot dl dd{width:146px;fpnt-size:14px;}
+.tra_bot dl dd a{height:40px;line-height:40px;padding:0;width:146px;display:block;}
+.dw-inline .dw .dw-cal{margin:0 auto !important;width: 100% !important;}
 /*pay*/
 .order_infor{background: #fff;padding:10px;margin: 10px 0;border: 1px solid #ccc;}
 .order_infor h3{font-size: 20px;margin-bottom: 5px;}

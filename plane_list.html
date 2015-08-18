@@ -11,24 +11,22 @@
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
-    <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll.custom-2.16.1.min.css" type="text/css" />
+  <script src="js/mobiscroll.custom-2.16.1.min.js"></script>
   <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
   <script src="js/common/comm.js"></script>
   <script type="text/javascript">
   $(function(){
   $.jqtab(".plane_foo .tab-item");
-    $(".next").click(function(){
+    $(".next").tap(function(){
       alert("next");
     })
-    $(".prev").click(function(){
+    $(".prev").tap(function(){
       alert("prev");
     })
 
        // Mobiscroll Calendar initialization
             $('.calender').mobiscroll().calendar({
-                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
                 display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
                 swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
