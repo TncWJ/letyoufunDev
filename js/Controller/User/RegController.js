@@ -24,7 +24,7 @@ angular.module('appUser', []).controller('RegController', function ($scope, $htt
                     if (d.type == 'success') {
                         $scope.curPage++;
                     } else {
-                        alert(d.data);
+                        lyf.alert(d.error);
                         return false;
                     }
                 }));
@@ -71,10 +71,11 @@ angular.module('appUser', []).controller('RegController', function ($scope, $htt
     $scope.getCheckCode = function () {
         var phone = {'phone_number': $scope.moblie};
         server.createRequest('user', 'getRegSMSCode', '', phone).then(function (d) {
-            if (d.state == "success") {
+            console.log(d);
+            if (d.status) {
                 $scope.time = '已发送';
             } else {
-                lyf.alert('error','网络错误，发送失败！' , 3000);
+                lyf.alert('error',d.error , 3000);
             }
         })
 

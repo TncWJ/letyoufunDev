@@ -71,8 +71,12 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
                                     $scope.clearPass();
                                 }else{
                                     lyf.alert('success' , '登陆密码修改成功，下次请使用新密码等陆！' , 3000);
-                                    $scope.goToLastTpl();
                                     $scope.clearPass();
+                                    server.createRequest('user' , 'logout' , '').then(function(d){
+                                        if(d.status){
+                                            window.history.go(-2);
+                                        }
+                                    })
                                 }
                             })
                         break;
@@ -127,12 +131,12 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
      * 获取一个手机验证码
      */
     $scope.getCheckCode = function () {
-        var phone = {'phone_number': $scope.moblie};
+        var phone = {phone_number: $scope.moblie , type:$scope.type};
         server.createRequest('user', 'getSMSCode', '', phone).then(function (d) {
-            if (d.state == "success") {
+            if (d.status) {
                 $scope.time = '已发送';
             } else {
-                lyf.alert('error','网络错误，发送失败！' , 3000);
+                lyf.alert('error', d.info, 3000);
             }
         })
 

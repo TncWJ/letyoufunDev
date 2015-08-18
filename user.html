@@ -79,7 +79,7 @@
             <li class="table-view-cell shou">
                 <a class="navigate-right" href="#" ng-click="changeTpl('userxin.html');">
                     <span class="pull-left icon_left" ></span>
-                    <em class="pull-right">{{userInfo.credit_limit|currency:'￥'}}</em>
+                    <em class="pull-right">{{userWallet.customer.credit_limit|currency:'￥'}}</em>
                     授信额
                 </a>
             </li>
@@ -294,11 +294,11 @@
     <div class="content pad50 grey" id="main_box">
         <div class="cz_main">
             <div class="cz_box">
-                信用总额<br><span>￥<i>{{userInfo.credit_limit|currency:''}}</i></span>
+                信用总额<br><span>￥<i>{{userWallet.customer.credit_limit|currency:''}}</i></span>
             </div>
             <div class="zhu_btn">
-                <a class="btn btn-block btn-orange" href="userxinsucc.html" ng-if="userInfo.creadit_activate != 1">立即激活</a>
-                <a class="btn btn-block btn-grey" href="javascript:void(0);" ng-if="userInfo.creadit_activate == 1">已经激活</a>
+                <a class="btn btn-block btn-orange" href="userxinsucc.html" ng-if="userWallet.customer.creadit_activate != 1">立即激活</a>
+                <a class="btn btn-block btn-grey" href="javascript:void(0);" ng-if="userWallet.customer.creadit_activate == 1">已经激活</a>
             </div>
             <div class="shuom">
                 <h3>授信额度说明：</h3>
