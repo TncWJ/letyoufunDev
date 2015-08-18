@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>乐有方</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- Roboto -->
+  <link rel="stylesheet" href="css/common/ratchet.min.css">
+  <link rel="stylesheet" href="css/common/app.css">
+  <link href="css/mobiscroll.custom-2.16.1.min.css" rel="stylesheet" type="text/css" />
+    
+  <!-- jQuery Include -->
+    <script src="js/Common/zepto.js"></script>
+     <script src="js/Common/main.js"></script>
+    <script src="js/mobiscroll.custom-2.16.1.min.js" type="text/javascript"></script>
+    <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+
+    <script>
+        $(function () {
+            $('#demo').mobiscroll().calendar({
+                     // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'inline',          // Specify display mode like: display: 'bottom' or omit setting to use default
+                swipeDirection: 'vertical' 
+            });
+			
+			//修改数量
+			var _text=parseInt($(".num_add .num").text());
+			$(".jia").tap(function(){
+				_text++;
+				$(".num_add .num").text(_text);
+				});
+			$(".jian").tap(function(){
+				if(_text>1){
+				_text--;
+				}else{
+				 _text=1;	
+					}
+				$(".num_add .num").text(_text);
+				});	
+        });
+    </script>
+</head>
+
+<body>
+ <header class="bar bar-nav orange">
+  <a class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">选择团期</h1>
+</header>
+<div class="content pad50 pad10" id="main_box">
+  <div class="chu_people">
+  <div class="chooze_num clearfix">
+    <h3>出游人</h3>
+    <div class="num_add">
+      <span class="jian">-</span>
+      <span class="num">1</span>
+      <span class="jia">+</span>
+    </div>
+    <div class="num_money">成人<span>￥1986</span></div>
+  </div>
+  <p class="tra_txt"><span class="icon icon-info"></span>订单价格以确定出游方案为准。</p>
+  </div>
+  <p id="demo"></p>
+  
+  <div class="tra_bot">
+  <dl>
+    <dt>
+      <p>2成人</p>
+      <p>已选团期：2015-09-01</p>
+    </dt>
+    <dd>
+      <a href="travel_order.html" class="btn btn-orange">下一步：确认优惠信息</a>
+    </dd>
+  </dl>
+</div>
+</div>
+</body>
+
+</html>
+
+</html>

@@ -46,7 +46,7 @@ $.maskshow=function(obj,oShow){
     $(oShow).show();
 	
   });
-   $("#hotel_sure,.mask").tap(function(){
+   $(".hotel_sure,.mask").tap(function(){
 	  $(".mask").hide();
 	  $(oShow).hide();
 	});	

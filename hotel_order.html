@@ -18,6 +18,20 @@
     <script src="js/Common/zepto.js"></script>
     <link rel="stylesheet" href="css/common/ratchet.min.css"/>
     <link rel="stylesheet" href="css/common/app.css"/>
+    <link rel="stylesheet" href="css/mobiscroll.custom-2.16.1.min.css" type="text/css" />
+    <script src="js/mobiscroll.custom-2.16.1.min.js"></script>
+    <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+
+    <script>
+        $(function () {
+            // Mobiscroll Calendar initialization
+            $('#demo').mobiscroll().calendar({
+                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
+                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
+            });
+        });
+    </script>
 </head>
 <body class="grey" ng-controller="PlaneBookController">
 <header class="bar bar-nav orange">
@@ -53,7 +67,7 @@
                   <form class="input-group">
                     <div class="input-row">
                       <label>最晚到店时间</label>
-                      <input type="text" placeholder="必填">
+                      <input type="text" placeholder="必填" id="demo">
                     </div>
                     <div class="input-row">
                       <label>预订人手机</label>

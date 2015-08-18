@@ -16,25 +16,9 @@
     <!--angularjs-->
     <script src="js/Controller/TravelConController.js"></script>
    <!--日期--> 
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="js/mobiscroll.custom-2.16.0.min.js"></script>
-  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
-  <script>
-  $(function () {
-
-            // Mobiscroll Calendar initialization
-            $('#demo').mobiscroll().calendar({
-                theme: 'mobiscroll',        // Specify theme like: theme: 'ios' or omit setting to use default
-                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
-                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-              });
-          }); 
-  </script>
   <!-- Roboto -->
   <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
-  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
   
 </head>
 <body ng-controller="TravelConController">
@@ -69,7 +53,7 @@
   <section>
    <ul class="table-view">
     <li class="table-view-cell">
-    <a class="navigate-right" id="demo">
+    <a class="navigate-right" id="demo" href="travel_calendar.html">
       <h3 class="tra_con_tit tuan">查看和选择团期</h3>
       <p>07-18，07-19，07-20，07-21，07-22，07-23…</p>
     </a>
@@ -91,7 +75,7 @@
           </dt>
           <dd>
             <h3>第{{v.tripDay}}天</h3>
-              <p>标题：{{v.tripTitle}}</p>
+            <p>标题：{{v.tripTitle}}</p>
             <p>用餐： {{v.breakfast}}</p>
             <p>住宿： {{v.tripStay}}</p>
             <p>交通： {{v.tripType}}</p>
