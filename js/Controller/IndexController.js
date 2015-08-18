@@ -18,9 +18,9 @@ angular.module('appIndex' , []).controller('IndexController' , function($scope ,
             var jingwai = d.jingwai;
             var i =0;
             for( i = 0; i < 1; i ++ ){
-                strZhoubian += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' , 3 , \'travelDetal\')"><dl><dt><img src="'+(zhoubian[i].picture)+'"></dt><dd><p>'+zhoubian[i].title+'</p><p><span>'+ zhoubian[i].other_info+'</span><em>|</em><span>'+zhoubian[i].special_info+'</span></p></dd></dl></a></li>';
-                strJingnei += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' , 3 , \'travelDetal\')"><dl><dt><img src="'+(jingnei[i].picture)+'"></dt><dd><p>'+jingnei[i].title+'</p><p><span>'+ jingnei[i].other_info+'</span><em>|</em><span>'+jingnei[i].special_info+'</span></p></dd></dl></a></li>';
-                strJingwai += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' , 3 , \'travelDetal\')"><dl><dt><img src="'+(jingwai[i].picture)+'"></dt><dd><p>'+jingwai[i].title+'</p><p><span>'+ jingwai[i].other_info+'</span><em>|</em><span>'+jingwai[i].special_info+'</span></p></dd></dl></a></li>';
+                strZhoubian += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' ,  '+zhoubian[i].packageid+', \'travelDetal\')"><dl><dt><img src="'+(zhoubian[i].picture)+'"></dt><dd><p>'+zhoubian[i].title+'</p><p><span>'+ zhoubian[i].other_info+'</span><em>|</em><span>'+zhoubian[i].special_info+'</span></p></dd></dl></a></li>';
+                strJingnei += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' , '+3 +', \'travelDetal\')"><dl><dt><img src="'+(jingnei[i].picture)+'"></dt><dd><p>'+jingnei[i].title+'</p><p><span>'+ jingnei[i].other_info+'</span><em>|</em><span>'+jingnei[i].special_info+'</span></p></dd></dl></a></li>';
+                strJingwai += '<li><a href="#" onclick="lyf.goToDetal(\'travel\' , '+3+' , \'travelDetal\')"><dl><dt><img src="'+(jingwai[i].picture)+'"></dt><dd><p>'+jingwai[i].title+'</p><p><span>'+ jingwai[i].other_info+'</span><em>|</em><span>'+jingwai[i].special_info+'</span></p></dd></dl></a></li>';
             }
             $('#slideBox1 .bd ul').append(strZhoubian);
             $('#slideBox2 .bd ul').append(strJingnei);

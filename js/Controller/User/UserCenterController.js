@@ -131,7 +131,7 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
      * 获取一个手机验证码
      */
     $scope.getCheckCode = function () {
-        var phone = {phone_number: $scope.moblie , type:$scope.type};
+        var phone = {phone_number: $scope.moblie , type:$scope.btn};
         server.createRequest('user', 'getSMSCode', '', phone).then(function (d) {
             if (d.status) {
                 $scope.time = '已发送';
