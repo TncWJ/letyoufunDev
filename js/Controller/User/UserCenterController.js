@@ -11,7 +11,7 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
     $scope.curPass = ''; //当前密码
     $scope.pass1 = '';
     $scope.pass2 = '';
-    $scope.time = '获取验证码';
+    $scope.msg = '获取验证码';
 
     var server = new ClientServer($http , $scope);
     var param = lyf.getUrlPram();
@@ -24,27 +24,6 @@ angular.module('appUserCenter' , []).controller('UserCenterController' , functio
     server.createRequest('user'  , 'getMyWallet', 'userWallet');
     server.createRequest('user'  , 'getBill', 'userBill');
     server.createRequest('user'  , 'getMyOrder', 'userOrder');
-
-    /**
-     * 切换模板
-     * @param tplName
-     * @param way 方法，如修改登录密码
-     */
-    $scope.changeTpl = function(tplName , way){
-        $scope.lastTplName = $scope.tplName;
-        $scope.tplName = tplName;
-
-        if(arguments[1]){
-            $scope.btn = way;
-        }
-    }
-
-    /**
-     * 切换到上个模板
-     */
-    $scope.goToLastTpl = function(){
-        $scope.tplName = $scope.lastTplName;
-    }
 
     /**
      * 返回客户端首页框架

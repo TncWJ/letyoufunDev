@@ -179,10 +179,12 @@ lyf.checkRpPass = function(pass1 , pass2){
 /**
  * 使用服务器端模板,避免session跨域
  * @param tplName
+ * @param param
  */
-    lyf.goToServerTpl = function(tplName){
+    lyf.goToServerTpl = function(tplName , param){
+        param = arguments[1] ? param : '';
         var host = window.location.href;
-         window.location.href = conf.common.serverTplDir+tplName+'?client_host='+host;
+         window.location.href = conf.common.serverTplDir+tplName+'?client_host='+host+'&param='+param;
     }
 
 /**
@@ -195,3 +197,4 @@ lyf.checkRpPass = function(pass1 , pass2){
             })
         })
     })
+

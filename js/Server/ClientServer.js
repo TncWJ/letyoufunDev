@@ -63,10 +63,13 @@ ClientServer.prototype.init = function($http , $scope){
     api['travel'] = 'AppServer/Travel';
     api['flight'] = 'AppServer/Flight';
     api['user'] = 'AppServer/User';
+    api['hotel'] = 'AppServer/Hotel';
 
     this.api = api;
     this.data = {};
     this.scope = $scope;
+
+
     /**
      * 跳转到详情页面
      * @param type
@@ -109,6 +112,29 @@ ClientServer.prototype.init = function($http , $scope){
     $scope.update = function (name, value) {
         $scope[name] = value;
     }
+
+
+    /**
+     * 切换模板
+     * @param tplName
+     * @param way 方法，如修改登录密码
+     */
+    $scope.changeTpl = function(tplName , way){
+        $scope.lastTplName = $scope.tplName;
+        $scope.tplName = tplName;
+
+        if(arguments[1]){
+            $scope.btn = way;
+        }
+    }
+
+    /**
+     * 切换到上个模板
+     */
+    $scope.goToLastTpl = function(){
+        $scope.tplName = $scope.lastTplName;
+    }
+
 }
 
 
