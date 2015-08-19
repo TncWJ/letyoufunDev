@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appHotel">
 <head>
   <meta charset="utf-8">
   <title>乐有方</title>
@@ -7,148 +7,462 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+    <!--Public-->
+    <script src="js/Common/zepto.js"></script>
+    <script src="conf/conf.js"></script>
+    <script src="js/Common/main.js"></script>
+    <script src="js/Common/angular.min.js"></script>
+    <script src="js/Server/ClientServer.js"></script>
+
+    <!--angularjs-->
+    <script src="js/Controller/Hotel/HotelMain.js"></script>
+    <!--angularjs-->
   <!-- Roboto -->
-  <link rel="stylesheet" href="css/common/ratchet.min.css">
+    <link rel="stylesheet" href="css/common/ratchet.min.css">
   <link rel="stylesheet" href="css/common/app.css">
   <link rel="stylesheet" href="css/mobiscroll.custom-2.16.1.min.css" type="text/css" />
-  <script src="js/Common/zepto.js"></script>
   <script src="js/Common/ratchet.min.js"></script>
   <script src="js/mobiscroll.custom-2.16.1.min.js"></script>
   <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
-  <script src="js/common/comm.js"></script>
-  <script src="js/common/main.js"></script>
-  <script type="text/javascript">
-  $(function(){
-    var text="";
-   $.tap(".select_dan span");
-   $(".select_fu span").not(".buxi").tap(function(){
-	   $(this).addClass("on").siblings(".buxi").removeClass("on");
-	   });
-   $.tap(".bot_select .buxi");
- 
-   $.maskshow(".xinj a",".popover2");
-   //获取值
-   $(".xinj a").tap(function(){  
-   text="";
-  });
-   $(".hotel_sure").tap(function(){
-    $(".bot_select_con span").each(function(){
-     if($(this).hasClass("on")&&(!$(this).hasClass("buxi"))){
-      text=$(this).text()+"、"+text;
-     }
-   });
-   $(".xinj em").text(text); 
-   });
-   
+  <script src="js/Common/comm.js"></script>
 
-   //时间
-    // Mobiscroll Calendar initialization
-            $('#demo').mobiscroll().calendar({
-                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
-                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-            });
-             $('#demo2').mobiscroll().calendar({
-                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
-                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-            });
-  });
-  </script>
-
-    <script>
-        $(function () {
-           
-        });
-    </script>
 
 </head>
-<body class="grey">
- <header class="bar bar-nav orange">
-  <a class="icon icon-left-nav pull-left"></a>
-  <h1 class="title">酒店查找</h1>
-</header>
-<div class="content grey" id="main_box">
-<div class="hotel_search">
-  <ul class="table-view">
-  <li class="table-view-cell media">
-    <a class="navigate-right" href="plane_chooze.html">
-      <span class="media-object pull-left icon cheng"></span>
-      <em class="pull-right">北京</em>
-      <div class="media-body">
-        入住城市
-      </div>
-    </a>
-  </li>
-  </ul>
-  <ul class="table-view">
-  <li class="table-view-cell media">
-    <a class="navigate-right">
-     <div class="hotel_date">
-      <dl>
-        <dt></dt>
-        <dd>
-          入住日期
-          <input id="demo" placeholder="{{today}}" type="text" time="0"/>
-        </dd>
-      </dl>
-      <p class="line"></p>
-      <dl>
-        <dt></dt>
-        <dd>
-          离店日期
-          <input id="demo2" placeholder="{{today}}" type="text" time="0"/>
-        </dd>
-      </dl>
-      </div>
-    </a>
-  </li>
-  </ul>
-  <ul class="table-view">
-  <li class="table-view-cell media">
-    <a class="navigate-right" href="hotel_select.html">
-      <span class="media-object pull-left icon guan"></span>
-      <em class="pull-right">北京</em>
-      <div class="media-body">
-        关键字/位置/品牌/名称
-      </div>
-    </a>
-  </li>
-  </ul>
-  <ul class="table-view">
-  <li class="table-view-cell media xinj">
-    <a class="navigate-right">
-      <span class="media-object pull-left icon xin"></span>
-      <em class="pull-right">北京</em>
-      <div class="media-body">
-        星级/价格
-      </div>
-    </a>
-  </li>
-</ul>
-<div class="searchBtn pad10">
-  <a href="hotel_list.html" class="btn btn-block btn-orange">搜索</a>
-</div>
-</div>
-</div> 
-<div class="mask"></div>
-<div class="botphone popover2">
-  <div class="bot_select select_fu">
-    <h3>星级（复选）</h3>
-    <div class="bot_select_con  clearfix">
-      <span class="buxi on">不限</span><span>二星级以下</span><span>三星/舒适</span><span>四星/高档</span><span>五星/豪华</span>
+<body class="grey" ng-controller="HotelController">
+<script type="text/ng-template" id="search.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">酒店查找</h1>
+    </header>
+    <div class="content grey" id="main_box">
+        <div class="hotel_search">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a class="navigate-right" href="#" ng-click="changeTpl('planeChooze.html');">
+                        <span class="media-object pull-left icon cheng"></span>
+                        <em class="pull-right">{{place.city}}</em>
+                        <div class="media-body">
+                            入住城市
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <div class="hotel_date">
+                            <dl>
+                                <dt></dt>
+                                <dd>
+                                    入住日期
+                                    <input id="demo" ng-model="today" type="text" time="0" ng-change="update('today' , today);"/>
+                                </dd>
+                            </dl>
+                            <p class="line"></p>
+                            <dl>
+                                <dt></dt>
+                                <dd>
+                                    离店日期
+                                    <input id="demo2" ng-model="tomorrow" type="text" time="0" ng-change="update('today' , today);"/>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a class="navigate-right" href="#" ng-click="getAreasAndZones();">
+                        <span class="media-object pull-left icon guan"></span>
+                        <em class="pull-right" ng-if="curAreasName == '' && curZonesName == '' && curbandsName == '' ">不限</em>
+                        <em class="pull-right">{{curAreasName}}{{curZonesName}}{{curbandsName}}</em>
+                        <div class="media-body">
+                            位置/商圈/品牌
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="table-view">
+                <li class="table-view-cell media xinj">
+                    <a class="navigate-right">
+                        <span class="media-object pull-left icon xin"></span>
+                        <em class="pull-right">不限</em>
+                        <div class="media-body">
+                            星级/价格
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="searchBtn pad10">
+                <a href="#" class="btn btn-block btn-orange" ng-click="search();">搜索</a>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="bot_select select_dan">
-    <h3>价格（单选）</h3>
-    <div class="bot_select_con  clearfix">
-      <span class="buxi on">不限</span><span>￥150以下</span><span>￥150-300</span><span>￥301-450</span><span>￥451-550</span><span>￥551-700</span><span>￥701-1000</span><span>￥1000以上</span>
+    <div class="mask"></div>
+    <div class="botphone popover2">
+        <div class="bot_select select_fu">
+            <h3>星级（复选）</h3>
+            <div class="bot_select_con  clearfix">
+                <span class="buxi on" ng-click="updateSearch('star' , [-1]);">不限</span><span ng-click="updateSearch('star' , 1 , true);">二星级以下</span><span ng-click="updateSearch('star' , 3 , true);">三星/舒适</span><span ng-click="updateSearch('star' , 4 , true);">四星/高档</span><span ng-click="updateSearch('star' , 5 , true);">五星/豪华</span>
+            </div>
+        </div>
+        <div class="bot_select select_dan">
+            <h3>价格（单选）</h3>
+            <div class="bot_select_con  clearfix">
+                <span class="buxi on" ng-click="updateSearch('price' , [{go:-1 , end:-1}]);">不限</span><span ng-click="updateSearch('price' , {go:0 , end:150} , true);">￥150以下</span><span ng-click="updateSearch('price' , {go:150 , end:300} , true);">￥150-300</span><span ng-click="updateSearch('price' , {go:301 , end:450} , true);">￥301-450</span><span ng-click="updateSearch('price' , {go:451 , end:550} , true);">￥451-550</span><span ng-click="updateSearch('price' , {go:551 , end:700} , true);">￥551-700</span><span ng-click="updateSearch('price' , {go:701 , end:1000} , true);">￥701-1000</span><span ng-click="updateSearch('price' , {go:1000 , end:-1} , true);">￥1000以上</span>
+            </div>
+        </div>
+        <div class="pad10">
+            <a class="publicbtn btn btn-block btn-orange hotel_sure" id="#hotel_sure">确定</a>
+        </div>
     </div>
-  </div>
-  <div class="pad10">
-  <a class="publicbtn btn btn-block btn-orange hotel_sure" id="#hotel_sure">确定</a>
-  </div>
+</script>
+
+<script type="text/ng-template" id="planeChooze.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">选择城市</h1>
+    </header>
+    <header class="bar bar-nav grey searchcity">
+        <input type="search" placeholder="输入城市名(如深圳\SZ、shenzhen)">
+    </header>
+    <div class="content pad90 grey" id="main_box">
+        <section>
+            <h3 class="citytit">当前城市</h3>
+            <div class="citychooze clearfix">
+                <span class="on" ng-if="place.city == '全国'">暂时无法获取您的位置，请选择!</span>
+                <a class="on" ng-hide="place.city == '全国'">{{place.city}}</a>
+            </div>
+        </section>
+        <section>
+            <h3 class="citytit">常用城市</h3>
+            <div class="citychooze clearfix">
+                <a class="on">深圳</a><a>上海</a>
+            </div>
+        </section>
+        <section>
+            <h3 class="citytit">热门城市</h3>
+            <div class="citychooze clearfix">
+                <a href="#" ng-repeat="v in hotCity.lists[0]" ng-click="setCurCity(v.cityname);">{{v.cityname}}</a>
+                <a href="#" ng-repeat="v in hotCity.lists[1]" ng-click="setCurCity(v.cityname);">{{v.cityname}}</a>
+            </div>
+        </section>
+        <aside>
+            <section>
+                <h3 class="citytit">快速定位</h3>
+                <div class="citychooze clearfix">
+                    <a href="#A">A</a>
+                    <a href="#B">B</a>
+                    <a href="#C">C</a>
+                    <a href="#D">D</a>
+                    <a href="#E">E</a>
+                    <a href="#F">F</a>
+                    <a href="#G">G</a>
+                    <a href="#H">H</a>
+                    <a href="#I">I</a>
+                    <a href="#J">J</a>
+                    <a href="#K">K</a>
+                    <a href="#L">L</a>
+                    <a href="#M">M</a>
+                    <a href="#N">N</a>
+                    <a href="#O">O</a>
+                    <a href="#P">P</a>
+                    <a href="#Q">Q</a>
+                    <a href="#R">R</a>
+                    <a href="#S">S</a>
+                    <a href="#T">T</a>
+                    <a href="#U">U</a>
+                    <a href="#V">V</a>
+                    <a href="#W">W</a>
+                    <a href="#X">X</a>
+                    <a href="#Y">Y</a>
+                    <a href="#Z">Z</a>
+                </div>
+            </section>
+            <section>
+                <h3 class="citytit">A</h3>
+                <div class="citychooze2" name="A" id="A">
+                    <a href="#">安康</a><a href="#">安顺</a>
+                </div>
+                <h3 class="citytit" name="C" id="B">B</h3>
+                <div class="citychooze2">
+                    <a href="#">包头</a><a href="#">北京</a><a href="#">北海</a>
+                </div>
+                <h3 class="citytit" name="C" id="C">C</h3>
+                <div class="citychooze2">
+                    <a href="#">长春</a><a href="#">长沙</a><a href="#">长白山</a><a href="#">常德</a><a href="#">成都</a><a href="#">重庆</a><a href="#">长治</a><a href="#">常州</a>
+                </div>
+            </section>
+        </aside>
+    </div>
+</script>
+<script type="text/ng-template" id="hotelSelect.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">酒店筛选</h1>
+    </header>
+    <div class="content grey" id="main_box">
+        <div class="hotel_select">
+            <div class="ho_se_right">
+                <ul class="ho_list on">
+                    <li ng-click="clear();" ng-class="curSelectIndex.Areas == -1 ? 'on' : ''"><span></span>不限</li>
+                    <li ng-repeat="v in data.HotelAreas" ng-click="selectOn('Areas' , {code:v.location ,name:v.locationname} ,$index);" ng-class="$index == curSelectIndex.Areas ? 'on' : ''"><span></span>{{v.locationname}}</li>
+                </ul>
+                <ul class="ho_list">
+                    <li ng-click="clear();"><span></span>不限</li>
+                    <li ng-repeat="v in data.HotelZones" ng-click="selectOn('Zones' , {code:v.zone , name:v.zonename} , $index);" ng-class="$index == curSelectIndex.Zones ? 'on' : ''"><span></span>{{v.zonename}}</li>
+
+                </ul>
+                <ul class="ho_list">
+                    <li ng-click="clear();"><span></span>不限</li>
+                    <li ng-repeat="v in data.showbands" ng-click="selectOn('Showbands' , {code:v.bandid , name:v.bandname} , $index);" ng-class="$index == curSelectIndex.bands ? 'on' : ''"><span></span>{{v.bandname}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ho_se_left">
+            <ul class="left_chooze">
+                <li class="xinz on" ng-click="showDetal(0);"><span></span>行政区</li>
+                <li class="squan" ng-click="showDetal(1);"><span></span>商圈</li>
+                <li class="brand" ng-click="showDetal(2);"><span></span>品牌</li>
+            </ul>
+        </div>
+        <div class="bot_sure">
+            <a href="#" class="btn btn-block btn-orange publicbtn" ng-click="changeTpl('search.html');">完成</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="hotelList.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">酒店列表</h1>
+    </header>
+    <div class="content" id="main_box">
+        <div class="travel_list">
+            <div class="control-content active">
+                <ul class="table-view">
+                    <li class="table-view-cell media nopa user_sc" ng-repeat="v in hotelList.list">
+                        <div class="dele_ch"><span></span></div>
+                        <a class="navigate-right noma" href="#" ng-click="getDetal(v.hotelid);">
+                            <img class="media-object pull-left" ng-src="{{v.mainimage.url}}">
+                            <div class="media-body">
+                                <dl class="hotel_list">
+                                    <dt>
+                                    <h4>{{v.hotelname}}</h4>
+                                    <p>{{v.segmentcategoryname}}</p>
+                                    <p><span>月供<em>{{v.lowestourprice/12|currency:''}}</em></span><span>分<em>12</em>期</span></p>
+                                    </dt>
+                                    <dd>
+                                        <h6><em>{{v.lowestourprice|currency:'￥'}}</em>起</h6>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <nav class="bar bar-tab plane_foo">
+        <a class="tab-item" href="#" ng-click="changeTpl('hotelSelect.html');">
+            <span class="icon"></span>
+            <span class="tab-label" >筛选</span>
+        </a>
+        <a class="tab-item haschone">
+            <span class="icon"></span>
+            <span class="tab-label">价格/星级</span>
+        </a>
+        <a class="tab-item pai haschtwo">
+            <span class="icon"></span>
+            <span class="tab-label">默认排序</span>
+        </a>
+    </nav>
+    <div class="mask"></div>
+    <div class="botphone popover2 selectone">
+        <h3 class="choo_title"><em>取消</em>选择排序方式</h3>
+        <ul class="link_list">
+            <li>100以下</li>
+            <li>100-200</li>
+            <li>200-300</li>
+            <li>300-500</li>
+            <li>500-700</li>
+            <li>700-1000</li>
+            <li>1000以上</li>
+        </ul>
+    </div>
+    <div class="botphone popover2 selecttwo">
+        <h3 class="choo_title"><em>取消</em>选择排序方式</h3>
+        <ul class="link_list">
+            <li>价格从高到低</li>
+            <li>价格从低到高</li>
+            <li>销量从高到低</li>
+            <li>距离从近到远</li>
+        </ul>
+    </div>
+</script>
+
+<script type="text/ng-template" id="hotelCon.html">
+    <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" ng-click="changeTpl('hotelList.html');"></a>
+        <h1 class="title">酒店详情</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <dl class="hotel_show">
+            <dt>
+            <h3>{{hotelDetal.data.hotelname}}</h3>
+            <p>{{hotelDetal.data.segmentcategoryname}}</p>
+            <p>地址: {{hotelDetal.data.addressline}}</p>
+            <p ng-if="hotelDetal.data.service_icon != '' "><a href="#" class="pull-right" ng-click="changeTpl('hotelSS.html')">详情&gt;</a>
+                <span ng-class="hotelDetal.data.service_icon.hotel_icon_ct1 != '' ? 're' : ''"></span>
+                <span ng-class="hotelDetal.data.service_icon.hotel_icon_wifi1 != '' ? 'wu' : ''"></span>
+            </p>
+            </dt>
+            <dd>
+                <a href="#" ng-click="changeTpl('hotelImg.html');">
+                    <img ng-src="{{hotelDetal.data.images[0].url}}">
+                    <span>更多图片</span>
+                </a>
+            </dd>
+        </dl>
+        <div class="hotel_or_list">
+            <ul class="table-view">
+                <li class="table-view-cell media clearfix pad10" ng-repeat="v in hotelDetal.data.rooms">
+                    <div class="media-object pull-left">
+                        <h3>{{v.roomtypename}}</h3>
+                        <p>分<span>12</span>期，月供<span>{{v.amountbeforetax/12|currency:'￥'}}</span></p>
+                        <p>{{v.invblockname}}/{{v.roomamenitycode.DescriptiveText}}/{{v.breakfast == 'false' ? '无早' : v.breakfast == 2 ? '含双早' : '含'+numberofbreakfast+'人早餐'}}</p>
+                    </div>
+                    <div class="media-body pull-right">
+                        <p>{{v.amountbeforetax|currency:'￥'}}</p>
+                        <a href="hotel_order.html" class="btn btn-orange">预定</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="hotelImg.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();s"></a>
+        <h1 class="title">图片展示</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="intro_tra white">
+            <div class="addWrap">
+                <div class="swipe" id="mySwipe">
+                    <div class="swipe-wrap">
+                        <div ng-repeat="v in hotelDetal.data.images" on-finish-render-filters><img  ng-src="{{v.url}}" class="w100"></div>
+                    </div>
+                </div>
+            </div>
 </div>
+</div>
+</script>
+
+
+<script type="text/ng-template" id="hotelSS.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">设施服务</h1>
+    </header>
+    <div class="content pad50 pad10" id="main_box">
+        <section>
+            <h3 class="maintit">基本信息</h3>
+            <div class="order_txt">
+                <p>开业时间：{{hotelDetal.data.whenbuilt}}</p>
+                <p>最近装修：{{hotelDetal.data.whenbuilt}}</p>
+            </div>
+        </section>
+        <section>
+            <h3 class="maintit">酒店服务</h3>
+            <div class="order_txt">
+                <p class="order_ss">
+                    <span ng-repeat="v in hotelDetal.data.hotelservice" ng-if="hotelDetal.data.hotelservice != ''">
+                        {{v.DescriptiveText}}
+                    </span>
+                </p>
+            </div>
+        </section>
+        <section>
+            <h3 class="maintit">房间服务</h3>
+            <div class="order_txt">
+                <p class="order_ss" data-ng-bind-html="hotelDetal.RoomService|to_html"></p>
+            </div>
+        </section>
+        <section>
+            <h3 class="maintit">酒店介绍</h3>
+            <div class="order_txt">
+                <p class="order_ss" data-ng-bind-html="hotelDetal.description|to_html"></p>
+            </div>
+        </section>
+    </div>
+</script>
+<div ng-include="tplName"></div>
+<script src="js/swipe.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        var text="";
+        $.tap(".select_dan span");
+        $(".select_fu span").not(".buxi").tap(function(){
+            $(this).addClass("on").siblings(".buxi").removeClass("on");
+        });
+        $.tap(".bot_select .buxi");
+
+        $.maskshow(".xinj a",".popover2");
+        //获取值
+        $(".xinj a").tap(function(){
+            text="";
+        });
+        $(".hotel_sure").tap(function(){
+            $(".bot_select_con span").each(function(){
+                if($(this).hasClass("on")&&(!$(this).hasClass("buxi"))){
+                    text=$(this).text()+"、"+text;
+                }
+            });
+            $(".xinj em").text(text);
+        });
+
+
+        //时间
+        // Mobiscroll Calendar initialization
+        $('#demo').mobiscroll().calendar({
+            lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+            display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
+            swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
+        });
+        $('#demo2').mobiscroll().calendar({
+            lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
+            display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
+            swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
+        });
+
+        //planeChooze
+        $.tap(".citychooze a");
+
+
+//        hotelList
+        $.maskshow(".haschone",".selectone");
+        $.maskshow(".haschtwo",".selecttwo");
+        $(".link_list li").tap(function(){
+            $(this).addClass("on").siblings().removeClass('on');
+            $(".mask,.popover2").hide();
+            var text=$(this).text();
+            if($(this).parents().hasClass("selecttwo")){
+                $(".haschtwo .tab-label").text(text);
+                $(".haschtwo").addClass("active").siblings().removeClass("active");
+            }else if($(this).parents().hasClass("selectone")){
+                $(".haschone .tab-label").text(text);
+                $(".haschone").addClass("active").siblings().removeClass("active");
+            }
+        });
+
+
+
+
+    });
+</script>
 </body>
 
 </html>
