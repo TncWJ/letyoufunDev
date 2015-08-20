@@ -138,10 +138,13 @@ var app = angular.module('appHotel', []).controller('HotelController', function 
             if ( goPrice == -1 && endPrice == -1){selPriceCode = '';}else{
                 if ( endPrice == -1){
                     //    无上限搜索
-                    if ( i ++ <= len) selPriceCode += goPrice+'TO'+',';
+                    if ( len - i-1 ){selPriceCode += goPrice+'TO'+',';}else{selPriceCode += goPrice+'TO'}
+                }else if( goPrice == 0){
+                    //以下
+                    if ( len - i -1){selPriceCode += endPrice+'TO'+',';}else{selPriceCode += endPrice+'TO'}
                 }else{
                     //区间搜索
-                    if ( i ++ <= len) selPriceCode += goPrice+'TO'+endPrice+',';
+                    if ( len - i -1){selPriceCode += goPrice+'TO'+endPrice+',';}else{selPriceCode += endPrice+'TO'}
                 }
             }
         }
@@ -207,7 +210,54 @@ var app = angular.module('appHotel', []).controller('HotelController', function 
             continuous: true,
             disableScroll:false
         });
+
     });
+
+    /**
+     * 酒店预定显示
+     */
+
+    $scope.hotelBook = function(id){
+        var data = {};
+            data.roomNum = 1;
+            data.name = '';
+            data.lastTime = '';
+            data.phone = '';
+        $scope.order = data;
+        server.createRequest('hotel' , 'getOderInfo/roomid/'+id +'/checkindate/'+$scope.today+'/checkoutdate/'+$scope.tomorrow, '').then(function(d){
+            if (d.status != '' && d.status){
+                window.location.href = './userlogin.html';
+            }else{
+                $scope.hotelOrderInfo = d;
+                $scope.changeTpl('hotelOrder1.html');
+            }
+        });
+    }
+
+
+    /**
+     * 检查用户填写的订单表单
+     */
+    $scope.checkOrderTable = function(){
+        console.log('ok');
+        var roomNum = $scope.order.roomNum;
+        var name = $scope.order.name;
+        var lastTime = $scope.order.lastTime;
+        var phone = $scope.order.phone;
+
+        if ( !roomNum || !name || !lastTime || !phone ){
+            lyf.alert('错误提示' , '表单信息不完整！' , 3000);
+            return false;
+        }else{
+            if ( typeof roomNum != "number"){$scope.order.roomNum = 1;return false;}
+            if ( !lyf.isCnName(name) ){$scope.order.name = ''; return false;}
+            if ( !lyf.IsDate(lastTime)){$scope.order.lastTime = '';return false;}
+            if ( !lyf.isMoblie(phone)){$scope.order.phone = '';return false;}
+
+            $scope.changeTpl('hotelOrder2.html');
+        }
+
+    }
 
 })
 

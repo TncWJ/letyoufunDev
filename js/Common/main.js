@@ -198,3 +198,28 @@ lyf.checkRpPass = function(pass1 , pass2){
         })
     })
 
+
+/**
+ * 中文名称验证
+ * @param name
+ * @returns {boolean}
+ */
+lyf.isCnName = function(name){
+        reg = /^[\u4E00-\u9FA5]{2,4}$/;
+        return !reg.test(name) ? false : true;
+}
+
+
+/**
+ * 是否是一个有效的日期
+ * @param str
+ * @returns {boolean}
+ * @constructor
+ */
+lyf.IsDate = function(str){
+    if(str.length!=0){
+        var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/;
+        var r = str.match(reg);
+        return r == null ? false : true;
+    }
+}
