@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appPlaneChooze">
   <head>
     <meta charset="utf-8">
     <title>乐有方</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      <!--Public-->
+      <script src="js/Common/zepto.js"></script>
+      <script src="conf/conf.js"></script>
+      <script src="js/Common/main.js"></script>
+      <script src="js/Common/angular.min.js"></script>
+      <script src="js/Server/ClientServer.js"></script>
+      <!--angularjs-->
+      <script src="js/Controller/PlaneChoozeController.js"></script>
 
     <!-- Roboto -->
     <link rel="stylesheet" href="css/common/ratchet.min.css">
@@ -19,7 +28,7 @@
   });
  </script>
   </head>
-  <body class="grey">
+  <body class="grey" ng-controller="PlaneChoozeController">
    <header class="bar bar-nav orange">
   <a class="icon icon-left-nav pull-left"></a>
   <h1 class="title">选择城市</h1>
@@ -37,17 +46,14 @@
   <section>
     <h3 class="citytit">常用城市</h3>
     <div class="citychooze clearfix">
-       <a class="on">深圳</a><a>西安</a>
+       <a class="on">深圳</a><a>上海</a>
     </div>
   </section>
   <section>
     <h3 class="citytit">热门城市</h3>
     <div class="citychooze clearfix">
-       <a>深圳</a><a>西安</a><a>云南</a><a>成都</a><a>大连</a><a>重庆</a>
-       <a>深圳</a><a>西安</a><a>云南</a><a>成都</a><a>大连</a><a>重庆</a>
-       <a>深圳</a><a>西安</a><a>云南</a><a>成都</a><a>大连</a><a>重庆</a>
-       <a>深圳</a><a>西安</a><a>云南</a><a>成都</a><a>大连</a><a>重庆</a>
-       <a>深圳</a><a>西安</a><a>云南</a><a>成都</a><a>大连</a><a>重庆</a>
+        <a href="#" ng-repeat="v in hotCity.lists[0]">{{v.cityname}}</a>
+        <a href="#" ng-repeat="v in hotCity.lists[1]">{{v.cityname}}</a>
     </div>
   </section>
  <aside>

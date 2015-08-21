@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>乐有方</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <script src="js/Common/zepto.js"></script>
+
+    <!-- Roboto -->
+  <link rel="stylesheet" href="css/common/ratchet.min.css">
+  <link rel="stylesheet" href="css/common/comm.css">
+  <link rel="stylesheet" href="css/user.css">
+  <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+  <script src="js/mobiscroll.zepto.js"></script>
+  <script src="js/mobiscroll.core.js"></script>
+  <script src="js/mobiscroll.widget.js"></script>
+  <script src="js/mobiscroll.scroller.js"></script>
+  <script src="js/mobiscroll.select.js"></script>
+  <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+  <script>
+        $(function () {
+
+            function init() {
+                
+                $('.demo_select').mobiscroll().select({
+                    lang: "zh"        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+            }    
+            $('.demo-cont').hide();
+            $("#demo_cont_select").show();
+            $("#demo_cont_select2").show();
+			     init();
+          
+        });
+    </script>
+</head>
+<body class="grey">
+ <header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">现金贷</h1>
+</header>
+<div class="content pad50 grey" id="main_box">
+  <div class="white">
+  <section>
+    <dl class="userinfor clearfix dai_user">
+      <dt><img src="images/user/user.jpg"></dt>
+      <dd>
+        <p>中午好,<span>张三</span></p>
+        <p class="rez_p">用户已认证</p>
+      </dd>
+    </dl>
+  </section>
+  <div class="jie_k pad10">
+    <ul class="kuan_infor clearfix">
+      <li>
+        <h3 class="jie_tit">【当前借款】</h3>
+        <p>￥<i>0.00</i></p>
+      </li>
+      <li>
+        <h3 class="jie_tit">【信用额度】</h3>
+        <p>￥<i>3000.00</i></p>
+      </li>
+    </ul>
+  </div>
+  <div class="jie_num pad10">
+    <h3 class="jie_tit">【借款人数】</h3>
+    <div class="num_show">
+      <span>1</span>
+      <span>5</span>
+      <span>2</span>
+      <span>1</span>
+      <span>9</span>
+      <span>1</span>
+      <span>0</span>
+      <span>6</span>
+    </div>
+  </div>
+  <div class="jie_num pad10">
+    <h3 class="jie_tit">【现金贷】</h3>
+    <div class="kuan_box pad10">
+    <div data-role="fieldcontain" class="demo-cont" id="demo_cont_select">
+            <label for="demo_select">贷款金额：</label>
+            <select name="Cities" id="demo_select" data-role="none" class="demo_select">
+                
+                <option value="1">100</option>
+                <option value="2">200</option>
+                <option value="3">500</option>
+                <option value="4">700</option>
+                <option value="5">800</option>
+                <option value="6">1000</option>
+                <option value="7">1500</option>
+                <option value="8">2000</option>
+                <option value="9">3000</option>
+            </select>   
+        </div>
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_select2">
+            <label for="demo_select2">还款期数：</label>
+            <select name="Cities" id="demo_select2" data-role="none" class="demo_select">
+                
+                <option value="1">3个月</option>
+                <option value="2">5个月</option>
+                <option value="3">6个月</option>
+                <option value="4">8个月</option>
+                <option value="5">10个月</option>
+                <option value="6">11个月</option>
+                <option value="7">12个月</option>
+            </select>   
+        </div>
+        <p class="edu">每月还款额度：<span>￥222.00</span></p>
+      </div>  
+    <button class="btn btn-orange btn-block">立即借贷</button>
+  </div> 
+ </div> 
+</div>
+</body>
+
+</html>

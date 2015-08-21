@@ -116,3 +116,85 @@ lyf.getUrlPram = function(name){
     }
     return theRequest;
 }
+
+
+lyf.goToDetal = function(apiName , id , templateName , type){
+    type = arguments[3] ? arguments[3] : 'travelCon';
+    window.location.href = './'+type+'.html?apiName='+apiName+'&id='+id+'&templateName='+templateName+'&type='+type;
+}
+
+/**
+ * 是否是手机号
+ * @param str
+ * @returns {boolean}
+ */
+lyf.isMoblie = function(str){
+    if (str.match(/^[0-9]{11}$/) == null) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/**
+ * 两次密码是否一致
+ * @param pass1
+ * @param pass2
+ * @returns {boolean}
+ */
+lyf.checkRpPass = function(pass1 , pass2){
+    return pass1 == pass2 ? true : false;
+}
+
+/**
+ * 弹出框
+ * @param title
+ * @param centent
+ * @param time
+ */
+    lyf.alert = function(title , centent , time){
+        var div = document.createElement('div');
+            div.className = 'wrap';
+            div.innerHTML = '<div class="content pad50 grey" id="main_box"><div class="alertbox"><h3>'+title+'<span class="sclose">&times;</span></h3><div class="alertmain">'+centent+'</div><div class="alertbot"><button class="btn surebtn">确定</button></div></div></div>';
+
+
+        $('body').append(div);
+       $(".alertbox").show();
+        $(".sclose").tap(function(){
+            $(".alertbox").hide();
+        });
+        $(".surebtn").tap(function(){
+           $(".alertbox").hide();
+        }).click(function(){
+            $('.alertbox').hide();
+        })
+
+        setTimeout(function(){
+             $(".alertbox").hide();
+            $('.wrap').remove();
+        },time);
+    }
+
+/**
+ * 使用服务器端模板,避免session跨域
+ * @param tplName
+ * @param param
+ */
+    lyf.goToServerTpl = function(tplName , param){
+        param = arguments[1] ? param : '';
+        var host = window.location.href;
+         window.location.href = conf.common.serverTplDir+tplName+'?client_host='+host+'&param='+param;
+    }
+
+/**
+ * 添加后退事件
+ */
+    $(function(){
+        $('.pull-left').each(function(){
+            $(this).click(function(){
+                    window.history.go(-1);
+            })
+        })
+    })
+

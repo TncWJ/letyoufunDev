@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>乐有方</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- Roboto -->
+  <link rel="stylesheet" href="css/common/ratchet.min.css">
+  <link rel="stylesheet" href="css/common/app.css">
+  <link rel="stylesheet" href="css/mobiscroll.custom-2.16.0.min.css" type="text/css" />
+ 
+ <script src="js/Common/zepto.js"></script>
+ <script src="js/Common/comm.js"></script>
+ <script src="js/Common/main.js"></script>
+ <script>
+  $(function(){
+  	$(".left_chooze li").tap(function(){
+  		$(this).addClass('on').siblings().removeClass('on');
+  		$(".ho_se_right .ho_list").eq($(this).index()).addClass('on').siblings("ul").removeClass('on');
+  	});
+  	$.tap(".ho_list li");
+  });
+ </script>
+</head>
+<body class="grey">
+ <header class="bar bar-nav orange">
+  <a class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">酒店筛选</h1>
+</header>
+<div class="content grey" id="main_box">
+  <div class="hotel_select">
+    <div class="ho_se_right">
+      <ul class="ho_list on">
+        <li class="on"><span></span>不限</li>
+        <li><span></span>大渡口区</li>
+        <li><span></span>九龙坡区</li>
+        <li><span></span>沙坪坝区</li>
+        <li><span></span>渝中区</li>
+        <li><span></span>大渡口区</li>
+        <li><span></span>九龙坡区</li>
+        <li><span></span>沙坪坝区</li>
+        <li><span></span>渝中区</li>
+        <li><span></span>不限</li>
+        <li><span></span>大渡口区</li>
+        <li><span></span>九龙坡区</li>
+        <li><span></span>沙坪坝区</li>
+        <li><span></span>渝中区</li>
+        <li><span></span>大渡口区</li>
+        <li><span></span>九龙坡区</li>
+        <li><span></span>沙坪坝区</li>
+        <li><span></span>渝中区</li>
+      </ul>
+      <ul class="ho_list">
+        <li><span></span>不限</li>
+        <li><span></span>电影院</li>
+        <li><span></span>饭店</li>
+        <li><span></span>公交车站</li>
+        <li><span></span>电影院</li>
+        <li><span></span>饭店</li>
+        <li><span></span>公交车站</li>
+        <li><span></span>电影院</li>
+        <li><span></span>饭店</li>
+        <li><span></span>公交车站</li>
+      </ul>
+      <ul class="ho_list">
+        <li><span></span>不限</li>
+        <li><span></span>希尔顿酒店</li>
+        <li><span></span>锦江之星</li>
+        <li><span></span>全季酒店</li>
+        <li><span></span>希尔顿酒店</li>
+        <li><span></span>锦江之星</li>
+        <li><span></span>全季酒店</li>
+        <li><span></span>希尔顿酒店</li>
+        <li><span></span>锦江之星</li>
+        <li><span></span>全季酒店</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ho_se_left">
+      <ul class="left_chooze">
+        <li class="xinz on"><span></span>行政区</li>
+        <li class="squan"><span></span>商圈</li>
+        <li class="brand"><span></span>品牌</li>
+      </ul>
+    </div>
+  <div class="bot_sure">
+  <a href="hotel.html" class="btn btn-block btn-orange publicbtn">完成</a>
+  </div>
+</div> 
+</body>
+
+</html>
