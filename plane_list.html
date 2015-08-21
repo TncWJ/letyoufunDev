@@ -31,7 +31,40 @@
                 display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
                 swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
               });
+          //底部筛选
+   var i=0;
+   var j=0;      
+  $(".item_se").tap(function(){
+    $(this).addClass('active').siblings('.item_se').removeClass('active');
+    if($(".piao").hasClass('active')){
+      $(".time").find(".tab-label").text("时间");
+      j=0;
+    }else if($(".time").hasClass('active')){
+       $(".piao").find(".tab-label").text("票价");
+      i=0;
+    }
   });
+  $(".piao").tap(function(){ 
+   if(!i){
+    $(this).find(".tab-label").text("票价由高到低"); 
+    i=1; 
+   }else{
+    $(this).find(".tab-label").text("票价由低到高");  
+    i=0;
+   }   
+  });   
+   $(".time").tap(function(){   
+  if(!j){
+    $(this).find(".tab-label").text("时间从早到晚"); 
+    j=1; 
+   }else{
+    $(this).find(".tab-label").text("时间从晚到早");  
+    j=0;
+   }   
+  });   
+  });
+
+ 
   </script>
 
 </head>
@@ -237,17 +270,17 @@
 </section>
 </div> 
 <nav class="bar bar-tab plane_foo">
-  <a class="tab-item" href="#">
+  <a class="tab-item shai" href="plane_select.html">
     <span class="icon"></span>
     <span class="tab-label">筛选</span>
   </a>
-  <a class="tab-item" href="#">
+  <a class="tab-item time item_se" >
     <span class="icon"></span>
     <span class="tab-label">时间</span>
   </a>
-  <a class="tab-item active" href="#">
+  <a class="tab-item active piao item_se">
     <span class="icon"></span>
-    <span class="tab-label">票价由低到高</span>
+    <span class="tab-label">票价</span>
   </a>
 </nav>
 </body>
