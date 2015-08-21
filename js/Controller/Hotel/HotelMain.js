@@ -225,7 +225,7 @@ var app = angular.module('appHotel', []).controller('HotelController', function 
             data.phone = '';
         $scope.order = data;
         server.createRequest('hotel' , 'getOderInfo/roomid/'+id +'/checkindate/'+$scope.today+'/checkoutdate/'+$scope.tomorrow, '').then(function(d){
-            if (d.status != '' && d.status){
+            if (d.status == 0){
                 window.location.href = './userlogin.html';
             }else{
                 $scope.hotelOrderInfo = d;

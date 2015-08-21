@@ -61,7 +61,6 @@ ClientServer.prototype.init = function($http , $scope){
     api['index'] = 'AppServer/Index'
     api['flight'] = 'AppServer/Flight';
     api['travel'] = 'AppServer/Travel';
-    api['flight'] = 'AppServer/Flight';
     api['user'] = 'AppServer/User';
     api['hotel'] = 'AppServer/Hotel';
 
@@ -136,6 +135,7 @@ ClientServer.prototype.init = function($http , $scope){
     }
 
 }
+
 
 
 

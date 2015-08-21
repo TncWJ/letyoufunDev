@@ -1,119 +1,590 @@
 <!DOCTYPE html>
-<html ng-app="appPlane">
+<html>
 <head>
     <meta charset="utf-8">
     <title>乐有方</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!--Public-->
-    <script src="js/Common/zepto.js"></script>
-    <script src="conf/conf.js"></script>
-    <script src="js/Common/main.js"></script>
-    <script src="js/Common/angular.min.js"></script>
-    <script src="js/Server/ClientServer.js"></script>
-    <!--angularjs-->
-    <script src="js/Controller/PlaneController.js"></script>
-    <!-- Roboto -->
     <link rel="stylesheet" href="css/common/ratchet.min.css">
     <link rel="stylesheet" href="css/common/app.css">
     <link rel="stylesheet" href="css/mobiscroll.custom-2.16.1.min.css" type="text/css" />
-     <script src="js/mobiscroll.custom-2.16.1.min.js"></script>
-    <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
-
-    <script>
-        $(function () {
-            // Mobiscroll Calendar initialization
-            $('#demo').mobiscroll().calendar({
-                lang: 'zh',                 // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',          // Specify display mode like: display: 'bottom' or omit setting to use default
-                swipeDirection: 'vertical'  // More info about swipeDirection: http://docs.mobiscroll.com/2-16-0/calendar#!opt-swipeDirection
-            });
-        });
-    </script>
+    <!--Public-->
+    <script src="js/Common/require.js" data-main="js/Main/Plane/Main"></script>
 
 </head>
 <body ng-controller="PlaneController">
-<header class="bar bar-nav orange">
-    <a class="icon icon-left-nav pull-left"></a>
-    <h1 class="title">机票</h1>
-</header>
-<div class="content pad50" id="main_box">
-    <section>
-        <div class="plane_tit">
-            <p class="tit_line"></p>
-            <h5>单程</h5>
+<script type="text/ng-template" id="plane.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToDetal('index' , '' , '' , 'index');"></a>
+        <h1 class="title">机票</h1>
+    </header>
+    <div class="content pad50" id="main_box">
+        <section>
+            <div class="plane_tit">
+                <p class="tit_line"></p>
+                <h5>单程</h5>
+            </div>
+            <div class="citychange">
+                <div class="cityone">
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <h6>出发城市</h6>
+                            <p><span class="dCityName" ng-click="changeTpl('planeChooze.html')">{{dCity}}</span></p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="citytwo" ng-click="exchangeCity();">
+
+                </div>
+                <div class="citythree">
+                    <dl>
+                        <dt>
+                        <h6>到达城市</h6>
+                        <p><span class="aCityName" ng-click="changeTpl('planeChooze.html')"">{{aCity}}</span></p>
+                        </dt>
+                        <dd>
+
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+        <section>
+            <ul class="table-view">
+                <li class="table-view-cell chtime nopa">
+                    <h3>出发日期</h3>
+                    <p>
+                        <input id="demo" type="text" ng-model="today"/>
+                    </p>
+                </li>
+            </ul>
+            <div class="plane_bot">
+                <button class="btn btn-positive btn-block btn-orange search_plane"  ng-click="searchFlight()">搜索</button>
+                <p class="lc"><a href="#">机票预订流程说明</a></p>
+            </div>
+        </section>
+        <nav class="nav_txt bar-tab">
+            <ul>
+                <li>
+                    <img src="images/btm_img.jpg">
+                </li>
+                <li>
+                    <img src="images/btm_img2.jpg">
+                </li>
+                <li>
+                    <img src="images/btm_img3.jpg">
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <div id="myPopover" class="popover botphone">
+        <h4></h4>
+    </div>
+</script>
+<script type="text/ng-template" id="planeChooze.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">选择城市</h1>
+    </header>
+    <header class="bar bar-nav grey searchcity">
+        <input type="search" placeholder="输入城市名(如深圳\SZ、shenzhen)">
+    </header>
+    <div class="content pad90 grey" id="main_box">
+        <section>
+            <h3 class="citytit">当前城市</h3>
+            <div class="citychooze clearfix">
+                <span class="on" ng-if="place.city == '全国'">暂时无法获取您的位置，请选择!</span>
+                <a class="on" ng-hide="place.city == '全国'">{{place.city}}</a>
+            </div>
+        </section>
+        <section>
+            <h3 class="citytit">常用城市</h3>
+            <div class="citychooze clearfix">
+                <a class="on">深圳</a><a>上海</a>
+            </div>
+        </section>
+        <section>
+            <h3 class="citytit">热门城市</h3>
+            <div class="citychooze clearfix">
+                <a href="#" ng-repeat="v in hotCity.lists[0]" ng-click="setCurCity(v.cityname);">{{v.cityname}}</a>
+                <a href="#" ng-repeat="v in hotCity.lists[1]" ng-click="setCurCity(v.cityname);">{{v.cityname}}</a>
+            </div>
+        </section>
+        <aside>
+            <section>
+                <h3 class="citytit">快速定位</h3>
+                <div class="citychooze clearfix">
+                    <a href="#A">A</a>
+                    <a href="#B">B</a>
+                    <a href="#C">C</a>
+                    <a href="#D">D</a>
+                    <a href="#E">E</a>
+                    <a href="#F">F</a>
+                    <a href="#G">G</a>
+                    <a href="#H">H</a>
+                    <a href="#I">I</a>
+                    <a href="#J">J</a>
+                    <a href="#K">K</a>
+                    <a href="#L">L</a>
+                    <a href="#M">M</a>
+                    <a href="#N">N</a>
+                    <a href="#O">O</a>
+                    <a href="#P">P</a>
+                    <a href="#Q">Q</a>
+                    <a href="#R">R</a>
+                    <a href="#S">S</a>
+                    <a href="#T">T</a>
+                    <a href="#U">U</a>
+                    <a href="#V">V</a>
+                    <a href="#W">W</a>
+                    <a href="#X">X</a>
+                    <a href="#Y">Y</a>
+                    <a href="#Z">Z</a>
+                </div>
+            </section>
+            <section>
+                <h3 class="citytit">A</h3>
+                <div class="citychooze2" name="A" id="A">
+                    <a href="#">安康</a><a href="#">安顺</a>
+                </div>
+                <h3 class="citytit" name="C" id="B">B</h3>
+                <div class="citychooze2">
+                    <a href="#">包头</a><a href="#">北京</a><a href="#">北海</a>
+                </div>
+                <h3 class="citytit" name="C" id="C">C</h3>
+                <div class="citychooze2">
+                    <a href="#">长春</a><a href="#">长沙</a><a href="#">长白山</a><a href="#">常德</a><a href="#">成都</a><a href="#">重庆</a><a href="#">长治</a><a href="#">常州</a>
+                </div>
+            </section>
+        </aside>
+    </div>
+</script>
+<script type="text/ng-template" id="planeList.html">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+        <h1 class="title">深圳——北京</h1>
+    </header>
+    <div class="content" id="main_box">
+        <section>
+            <div class="chooze_time">
+                <div class="calender">
+                    <img src="images/rlicon.jpg">
+                    <h4>低价日历</h4>
+                </div>
+                <div class="timetab">
+                    <div class="timeMain">
+                        <div class="prev">
+                            <span class="icon icon-left-nav"></span>
+                        </div>
+                        <div class="timetabCon">
+                            <ul class="clearfix">
+                                <li>
+                                    <p><span>￥300</span>起</p>
+                                    <p>
+                                        7月12日<em>周日</em>
+                                    </p>
+                                </li>
+                                <li class="on">
+                                    <p><span>￥300</span>起</p>
+                                    <p>
+                                        7月12日<em>周日</em>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p><span>￥300</span>起</p>
+                                    <p>
+                                        7月12日<em>周日</em>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="next">
+                            <span class="icon icon-right-nav"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <ul class="plane_list">
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="plane_cw.html">
+                        <div class="listone">
+                            <div class="add_plane">
+                                <div class="addbox1">
+                                    <h3>07:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                                <div class="addbox2">
+                                    <img src="images/plane_icon2.jpg">
+                                </div>
+                                <div class="addbox1">
+                                    <h3>10:13</h3>
+                                    <p>深圳宝安国际机场</p>
+                                </div>
+                            </div>
+                            <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                        </div>
+                        <div class="listtwo">
+                            <h3>￥300</h3>
+                            <p>分<span>10</span>期</p>
+                            <p>月供<span>￥30</span></p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <nav class="bar bar-tab plane_foo">
+        <a class="tab-item" href="#">
+            <span class="icon"></span>
+            <span class="tab-label">筛选</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon"></span>
+            <span class="tab-label">时间</span>
+        </a>
+        <a class="tab-item active" href="#">
+            <span class="icon"></span>
+            <span class="tab-label">票价由低到高</span>
+        </a>
+    </nav>
+</script>
+<script type="text/ng-template" id="planeDetal">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+
+        <h1 class="title">舱位选择</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="plane_cw">
+            <section>
+                <div class="plane_infor">
+                    <p class="hk_infor"><span><img src="images/plane_icon4.jpg"/>2015-07-09</span> <span><img
+                            src="images/hkicon.jpg"/>深圳航空公司ZH9959<em>738</em><em>中</em></span></p>
+
+                    <div class="add_plane pad10">
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                        <div class="addbox2">
+                            <img src="images/plane_icon3.jpg"/>
+                        </div>
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <ul class="table-view plane_list nopa">
+                    <li class="table-view-cell" ng-repeat="v in flightLists">
+                        <button class="btn btn-orange" ng-click="goToDetal('flight' , '' , '' , 'pay')">预订</button>
+                        <span href="#" class="pull-right money">￥{{v.minprice}}</span> <h4>(经济舱)3.2折</h4>
+
+                        <p><a href="#">退订规定</a></p></li>
+                </ul>
+                <a class="more_cw" href="#">更多舱位<span class="icon icon-down-nav"></span></a>
+            </section>
         </div>
-        <div class="citychange">
-            <div class="cityone">
+    </div>
+</script>
+<script type="text/ng-template" id="planeOrder1">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+
+        <h1 class="title">订单详情</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="plane_cw plane_order">
+            <section>
+                <div class="plane_infor">
+                    <p class="hk_infor">7月21日，周二出发</p>
+
+                    <div class="add_plane pad10">
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                        <div class="addbox2">
+                            <img src="images/plane_icon3.jpg"/>
+                        </div>
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                    </div>
+                    <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                </div>
+            </section>
+        </div>
+        <section>
+            <div class="pla_or_main">
+                <h3 class="pla_or_tit">乘客信息</h3>
+                <div class="ck_con">
+                    <dl class="ck_infor">
+                        <dt></dt>
+                        <dd>
+                            <form class="input-group">
+                                <div class="input-row">
+                                    <label>成人票</label>
+                                    <input type="text" placeholder="姓名">
+                                </div>
+                                <div class="input-row">
+                                    <label>身份证</label>
+                                    <input type="email" placeholder="必填">
+                                </div>
+                            </form>
+                        </dd>
+                    </dl>
+                </div>
+                <p class="addxck">添加新乘客</p>
+            </div>
+            <div class="pla_or_main">
+                <h3 class="pla_or_tit">联系人信息</h3>
                 <dl>
                     <dt></dt>
                     <dd>
-                        <h6>出发城市</h6>
-                        <p><span class="dCityName">广州</span></p>
+                        <form class="input-group">
+                            <div class="input-row">
+                                <label>姓名</label>
+                                <input type="text" placeholder="必填">
+                            </div>
+                            <div class="input-row">
+                                <label>联系电话</label>
+                                <input type="email" placeholder="必填">
+                            </div>
+                        </form>
                     </dd>
                 </dl>
             </div>
-            <div class="citytwo">
-
-            </div>
-            <div class="citythree">
-                <dl>
-                    <dt>
-                    <h6>到达城市</h6>
-                    <p><span class="aCityName">北京</span></p>
-                    </dt>
-                    <dd>
-
-                    </dd>
-                </dl>
-            </div>
+        </section>
+    </div>
+    <div class="plane_total clearfix">
+        <div class="pull-left">
+            <p><em>总额<span>￥340</span></em><em><span>1</span>成人</em></p>
+            <p><em>分<span>10期</span></em><em>月供<span>￥30</span></em></p>
         </div>
-    </section>
-    <section>
-        <ul class="table-view">
-            <li class="table-view-cell chtime nopa">
-                <h3>出发日期</h3>
-                <p>
-                    <input id="demo" placeholder="{{today}}" type="text" time="0"/>
-                </p>
-            </li>
-        </ul>
-        <div class="plane_bot">
-            <button class="btn btn-positive btn-block btn-orange search_plane"  ng-click="searchFlight()">搜索</button>
-            <p class="lc"><a href="#">机票预订流程说明</a></p>
+        <div class="pull-right">
+            <span class="feiy">费用明细</span>
+            <a href="plane_order2.html" class="btn btn-orange">下一步</a>
         </div>
-    </section>
-    <nav class="nav_txt bar-tab">
-        <ul>
-            <li>
-                <img src="images/btm_img.jpg">
-            </li>
-            <li>
-                <img src="images/btm_img2.jpg">
-            </li>
-            <li>
-                <img src="images/btm_img3.jpg">
-            </li>
-        </ul>
-    </nav>
-
-</div>
-
-
-<div id="myPopover" class="popover botphone">
-    <h4></h4>
-</div>
-<script type="text/javascript">
-    $(".citytwo").click(function(){
-        var val1=$(".cityone dd p span").text();
-        var val2=$(".citythree dt p span").text();
-        $(this).toggleClass("on");
-        $(".cityone dd p span").html(val2);
-        $(".citythree dt p span").html(val1);
-    });;
+    </div>
+    <div class="mask"></div>
+    <div class="plane_pri">
+        <p class="hk_infor">7月21日，周二出发</p>
+        <div class="pri_infor">
+            <p class="clearfix"><span>成人价：</span><em>￥290×1</em></p>
+            <p class="clearfix"><span>机建/燃油：</span><em>￥50×1</em></p>
+        </div>
+    </div>
 </script>
+<script type="text/ng-template" id="planeOrder2">
+    <header class="bar bar-nav orange">
+        <a class="icon icon-left-nav pull-left" ng-click="goToLastTpl();"></a>
+
+        <h1 class="title">订单详情</h1>
+    </header>
+    <div class="content pad50 grey" id="main_box">
+        <div class="plane_cw plane_order">
+            <section>
+                <div class="plane_infor">
+                    <p class="hk_infor">7月21日，周二出发</p>
+
+                    <div class="add_plane pad10">
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                        <div class="addbox2">
+                            <img src="images/plane_icon3.jpg"/>
+                        </div>
+                        <div class="addbox1">
+                            <h3>深圳</h3>
+                            <h5>07:13</h5>
+
+                            <p>深圳宝安国际机场</p>
+                        </div>
+                    </div>
+                    <p class="hk_list"><img src="images/plane_icon.jpg">中国南方航空 cz3276<em>|</em>经济舱</p>
+                </div>
+            </section>
+        </div>
+        <section>
+            <div class="index_box plane_order2">
+                <h3>订单信息</h3>
+                <ul class="table-view">
+                    <li class="table-view-cell"><span>订单状态</span><em class="color">未付款</em></li>
+                    <li class="table-view-cell"><span>订单编号</span><em>2130981098</em></li>
+                    <li class="table-view-cell">
+                        <p><span>应付金额</span><em class="color">￥340</em></p>
+                        <p><span>分<em class="color">10</em>期</span><span>月供<em class="color">￥30</em></span></p>
+                    </li>
+                    <li class="table-view-cell"><span>下单时间</span><em>2015-07-18</em></li>
+                    <li class="table-view-cell"><span>出发时间</span><em>2015-07-18 14:33</em></li>
+                </ul>
+            </div>
+            <div class="index_box plane_order2">
+                <h3>乘机人信息</h3>
+                <ul class="table-view">
+                    <li class="table-view-cell"><span>乘客姓名</span><em class="color">张三</em></li>
+                    <li class="table-view-cell"><span>身份证号</span><em>213891277198893981</em></li>
+                </ul>
+            </div>
+            <div class="index_box plane_order2">
+                <h3>联系人信息</h3>
+                <ul class="table-view">
+                    <li class="table-view-cell"><span>联系人姓名</span><em class="color">张三</em></li>
+                    <li class="table-view-cell"><span>手机号码</span><em>1231313123</em></li>
+                </ul>
+            </div>
+        </section>
+        <div class="pla_pay_btn">
+            <a href="pay.html" class="btn btn-block btn-orange">立即支付</a>
+        </div>
+    </div>
+</script>
+<div class="Main" ng-include="tplName"></div>
 </body>
 
 </html>
