@@ -31,7 +31,7 @@
 <body class="grey" ng-controller="HotelController">
 <script type="text/ng-template" id="search.html">
     <header class="bar bar-nav orange">
-        <a class="icon icon-left-nav pull-left"></a>
+        <a class="icon icon-left-nav pull-left" ng-click="goToDetal('' , '' , '' , 'index');"></a>
         <h1 class="title">酒店查找</h1>
     </header>
     <div class="content grey" id="main_box">
@@ -249,7 +249,7 @@
                                     <dt>
                                     <h4>{{v.hotelname}}</h4>
                                     <p>{{v.segmentcategoryname}}</p>
-                                    <p><span>月供<em>{{v.lowestourprice/12|currency:''}}</em></span><span>分<em>12</em>期</span></p>
+                                    <p><span>月供<em>{{v.monthPay|currency:'￥'}}</em></span><span>分<em>12</em>期</span></p>
                                     </dt>
                                     <dd>
                                         <h6><em>{{v.lowestourprice|currency:'￥'}}</em>起</h6>

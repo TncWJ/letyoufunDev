@@ -29,7 +29,7 @@
 </head>
 <body ng-controller="IndexController">
   <header class="bar bar-nav orange head">
-    <a class="pull-left tab" href="plane_chooze.html">深圳</a>
+    <a class="pull-left tab" href="js/views/plane_chooze.html">深圳</a>
     <a class="icon pull-right" href="#myPopover"><img src="images/phoneicon.png"></a>
     <h1><input type="search" placeholder="搜索目的地"></h1>
   </header>
@@ -78,7 +78,7 @@
       <span class="tab-label">机票</span>
     </a>
     <a href="travel.html" class="tab-item">
-      <span class="icon"><img src="images/indexicon6.jpg"></span>
+      <span class="icon" ng-click="goToCheck('' , '' , 'userDai.html' , 'user')"><img src="images/indexicon6.jpg"></span>
       <span class="tab-label">现金贷</span>
     </a>
   </aside>
@@ -173,73 +173,6 @@
   </div>
 </div>
 
-<div class="index_box hasbot">
-  <h3>门票推荐</h3>
- <div id="slideBox4" class="slideBox slideBox4">
-    <div class="bd">
-      <ul>
-          <li>
-            <a href="travelCon.html">
-        <dl>
-          <dt><img src="images/img5.jpg"></dt>
-          <dd>
-            <p>云阳张飞庙一日游</p>
-            <p>价格：<span>200</span><em>|</em>分期：<span>￥100×2</span></p>
-          </dd>
-        </dl>
-      </a>
-          </li>
-          <li>
-            <a href="travelCon.html">
-        <dl>
-          <dt><img src="images/img5.jpg"></dt>
-          <dd>
-            <p>云阳张飞庙一日游</p>
-            <p>价格：<span>200</span><em>|</em>分期：<span>￥100×2</span></p>
-          </dd>
-        </dl>
-      </a>
-          </li>
-          <li>
-            <a href="travelCon.html">
-        <dl>
-          <dt><img src="images/img5.jpg"></dt>
-          <dd>
-            <p>云阳张飞庙一日游</p>
-            <p>价格：<span>200</span><em>|</em>分期：<span>￥100×2</span></p>
-          </dd>
-        </dl>
-      </a>
-          </li>
-          <li>
-            <a href="travelCon.html">
-        <dl>
-          <dt><img src="images/img5.jpg"></dt>
-          <dd>
-            <p>云阳张飞庙一日游</p>
-            <p>价格：<span>200</span><em>|</em>分期：<span>￥100×2</span></p>
-          </dd>
-        </dl>
-      </a>
-          </li>
-      </ul>
-    </div>
-
-    <div class="hd">
-      <ul></ul>
-    </div>
-  </div>
-  <script type="text/javascript">
-    TouchSlide({
-      slideCell:"#slideBox4",
-      titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-      mainCell:".bd ul",
-      effect:"leftLoop",
-      autoPage:true,//自动分页
-      autoPlay:false //自动播放
-    });
-  </script>
-</div>
 
 <div class="index_box hasbot">
   <h3>酒店推荐</h3>
@@ -262,7 +195,7 @@
     <span class="tab-label">首页</span>
   </a>
   <a class="tab-item" href="#">
-    <span class="icon"></span>
+    <span class="icon" ng-click="goToCheck('' , '' , 'userDai.html' , 'user')"></span>
     <span class="tab-label">借款</span>
   </a>
   <a class="tab-item" href="#">

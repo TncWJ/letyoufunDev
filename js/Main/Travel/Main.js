@@ -1,5 +1,5 @@
 /**
- * Created by jiangjiacai on 2015/8/21.
+ * Created by jiangjiacai on 2015/8/25.
  */
 require.config(
     {
@@ -16,12 +16,13 @@ require.config(
             common: 'Common/comm.amd',
             route: 'Common/angular-route.min',
             appCenter:'Controller/Plane/PlaneCenter',
-            run: 'Main/Plane/run',
+            run: 'Main/Travel/run',
+            swip:'swipe.min',
             //private
             mobiscroll: 'mobiscroll.custom-2.16.1.min.amd',
             mobiscrollZh: 'i18n/mobiscroll.i18n.zh.amd',
             //    angular
-            planeCon: 'Controller/Plane/PlaneController',
+            travelCon: 'Controller/Travel/TravelController',
         },
         shim: {
             ng: {
@@ -52,7 +53,6 @@ require.config(
     }
 )
 
-
-require([ 'app', 'planeCon' , 'run'], function (app) {
+require([ 'app', 'travelCon' , 'run'], function (app) {
     app.init();
 })

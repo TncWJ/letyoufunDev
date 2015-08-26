@@ -25,7 +25,7 @@ ClientServer.prototype.createRequest = function(apiName , getParam , templateNam
     postData = arguments[3] ? postData : '';
 
     var scope = this.scope;
-        scope['isok'] = false;
+        scope['loadOk'] = false;
     if( !postData ){
         this.data =  (
             this.http.get(lyf.go(this.api[apiName] , getParam)).then(function(response){
@@ -47,7 +47,7 @@ ClientServer.prototype.createRequest = function(apiName , getParam , templateNam
         return this.data;
     }
     this.data.then(function(d){
-        scope['isok'] = true;
+        scope['loadOk'] = true;
         scope[templateName] = d;
     })
 }
@@ -133,6 +133,7 @@ ClientServer.prototype.init = function($http , $scope){
     $scope.goToLastTpl = function(){
         $scope.tplName = $scope.lastTplName;
     }
+
 
 }
 
